@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quem Somos | Comunidade Cristã No Caminho</title>
+<!-- Correção para compatibilidade de Aplicativo -->
+<meta name="mobile-web-app-capable" content="yes">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root { --verde: #2A4035; --dourado: #B8893A; --branco: #FDFAF4; --creme: #F5EDD8; }
@@ -16,6 +18,8 @@
   .sola-box h3 { margin-top: 0; color: var(--verde); font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; }
   .map-wrapper { width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-top: 2rem; border: 1px solid var(--creme); line-height: 0; }
   footer { background: var(--verde); color: var(--creme); padding: 3rem; text-align: center; margin-top: 5rem; }
+  /* Estilo para o link de navegação */
+  .address-link { color: var(--verde); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--dourado); }
 </style>
 </head>
 <body>
@@ -39,7 +43,15 @@
 
   <section style="text-align: center; margin-top: 5rem;">
     <h2 style="font-family: 'Cormorant Garamond', serif; color: var(--verde); font-size: 2.5rem;">Onde Estamos</h2>
-    <p>Rua Rafael Paulo Teixeira de Oliveira, 224 - Campinas, SP</p>
+    <!-- Correção de Link para Google Maps no PWA -->
+    <p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Rafael+Paulo+Teixeira+de+Oliveira+224+Campinas" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="address-link">
+         Rua Rafael Paulo Teixeira de Oliveira, 224 - Campinas, SP
+      </a>
+    </p>
     <div class="map-wrapper">
       <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3675.244!2d-47.020389!3d-22.880250!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDUyJzQ4LjkiUyA0N8KwMDEnMTMuNCJX!5e0!3m2!1spt-BR!2sbr!4v1715000000000">
