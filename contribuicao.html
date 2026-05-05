@@ -4,52 +4,96 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contribuição | Comunidade Cristã No Caminho</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  :root { --verde: #2A4035; --dourado: #B8893A; --creme: #F5EDD8; --branco: #FDFAF4; }
-  body { font-family: 'Lato', sans-serif; background: var(--branco); margin: 0; text-align: center; }
-  nav { background: var(--verde); padding: 1rem; }
-  nav a { color: var(--creme); text-decoration: none; font-weight: 700; text-transform: uppercase; }
-  .header { padding: 4rem 2rem; background: var(--verde); color: var(--creme); }
-  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; }
-  .container { max-width: 900px; margin: 4rem auto; padding: 0 2rem; }
-  .box { background: var(--creme); padding: 3rem; border-radius: 8px; border: 2px solid var(--dourado); margin-bottom: 2rem; }
-  .pix-key { font-size: 1.5rem; font-weight: 700; color: var(--verde); margin: 1.5rem 0; display: block; }
-  .btn { background: var(--verde); color: white; padding: 1rem 2rem; border: none; cursor: pointer; font-weight: 700; text-transform: uppercase; }
-  .social-icons { margin-top: 2rem; font-size: 3rem; display: flex; justify-content: center; gap: 2rem; }
-  .social-icons a { color: var(--verde); transition: 0.3s; }
-  .social-icons a:hover { color: var(--dourado); }
-  #toast { visibility: hidden; background: var(--verde); color: white; padding: 1rem; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); border-radius: 4px; }
+  :root { --verde: #2A4035; --verde-claro: #3d5c4c; --dourado: #B8893A; --branco: #FDFAF4; --creme: #F5EDD8; }
+  
+  body { font-family: 'Lato', sans-serif; background: var(--branco); margin: 0; color: var(--verde); overflow-x: hidden; }
+  
+  /* Navigation */
+  nav { background: var(--verde); padding: 1.2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  nav a { color: var(--creme); text-decoration: none; font-weight: 700; text-transform: uppercase; margin: 0 1.2rem; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.3s; }
+  nav a:hover { color: var(--dourado); }
+
+  /* Hero Section */
+  .hero-contrib { background: linear-gradient(rgba(42,64,53,0.9), rgba(42,64,53,0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=1000'); background-size: cover; background-position: center; color: var(--creme); padding: 5rem 2rem; text-align: center; }
+  .hero-contrib h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin: 0; }
+  .hero-contrib p { font-style: italic; max-width: 600px; margin: 1rem auto; opacity: 0.9; font-size: 1.1rem; }
+
+  .container { max-width: 1000px; margin: -3rem auto 4rem; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  /* Cards */
+  .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 15px 35px rgba(42,64,53,0.08); border: 1px solid var(--creme); transition: transform 0.3s ease; }
+  .card:hover { transform: translateY(-5px); }
+  .card h2 { font-family: 'Cormorant Garamond', serif; color: var(--dourado); font-size: 2rem; margin-top: 0; border-bottom: 2px solid var(--creme); padding-bottom: 0.5rem; }
+
+  /* PIX Section */
+  .pix-container { text-align: center; background: var(--creme); padding: 2rem; border-radius: 8px; border: 2px dashed var(--dourado); margin-top: 1.5rem; }
+  .pix-key { font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.3rem; color: var(--verde); display: block; margin-bottom: 1rem; }
+  .copy-btn { background: var(--verde); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; cursor: pointer; font-weight: 700; text-transform: uppercase; transition: background 0.3s; width: 100%; }
+  .copy-btn:hover { background: var(--verde-claro); }
+
+  /* Bank Details */
+  .detail { margin-bottom: 1.2rem; display: flex; justify-content: space-between; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.4rem; }
+  .detail strong { font-size: 0.75rem; text-transform: uppercase; color: var(--dourado); letter-spacing: 0.5px; }
+  .detail span { font-weight: 700; font-size: 1rem; }
+
+  @media (max-width: 768px) { .container { grid-template-columns: 1fr; margin-top: 2rem; } }
 </style>
 </head>
 <body>
-<nav><a href="index.html">← Voltar para a Página Inicial</a></nav>
-<div class="header">
-  <h1>Contribuição & Social</h1>
-  <p>Ajude a manter esta obra e acompanhe-nos online.</p>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="quem-somos.html">Quem Somos</a>
+  <a href="agenda.html">Agenda</a>
+</nav>
+
+<div class="hero-contrib">
+  <h1>Generosidade</h1>
+  <p>"Cada um contribua conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria." — 2 Co 9:7</p>
 </div>
+
 <div class="container">
-  <div class="box">
-    <h2>Dízimos e Ofertas via Pix</h2>
-    <p>Utilize nossa chave CNPJ abaixo:</p>
-    <span class="pix-key" id="key">64.757.502/0001-44</span>
-    <button class="btn" onclick="copy()">Copiar Chave Pix</button>
+  <!-- Card PIX -->
+  <div class="card">
+    <h2>Contribuição Rápida</h2>
+    <p>Aponte o celular para o QR Code ou use a chave CNPJ abaixo para realizar sua oferta via PIX.</p>
+    <div class="pix-container">
+      <strong>Chave CNPJ</strong>
+      <span class="pix-key" id="pixKey">64.757.502/0001-44</span>
+      <button class="copy-btn" onclick="copyPix()">Copiar Chave PIX</button>
+      <p id="copyFeedback" style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--dourado); display: none;">Copiado com sucesso!</p>
+    </div>
   </div>
-  <h2>Nossas Redes Sociais</h2>
-  <div class="social-icons">
-    <a href="https://instagram.com/comunidadecristanocaminho" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/channel/UCBvavSIjvMEBl39kCTrk2Nw" target="_blank"><i class="fab fa-youtube"></i></a>
+
+  <!-- Card Transferência -->
+  <div class="card">
+    <h2>Dados Bancários</h2>
+    <p>Para transferências via TED ou DOC, utilize os dados da conta institucional da igreja:</p>
+    
+    <div class="detail"><strong>Favorecido</strong><span>No Caminho</span></div>
+    <div class="detail"><strong>Banco</strong><span>Cora SCD</span></div>
+    <div class="detail"><strong>Agência</strong><span>0001</span></div>
+    <div class="detail"><strong>Conta</strong><span>6736893-8</span></div>
+    <div class="detail"><strong>CNPJ</strong><span>64.757.502/0001-44</span></div>
   </div>
 </div>
-<div id="toast">Chave copiada com sucesso!</div>
+
+<footer style="background: var(--verde); color: var(--creme); padding: 3rem; text-align: center;">
+  <p>© 2026 Comunidade Cristã No Caminho — Campinas, SP</p>
+</footer>
+
 <script>
-  function copy() {
-    navigator.clipboard.writeText("64.757.502/0001-44");
-    var t = document.getElementById("toast");
-    t.style.visibility = "visible";
-    setTimeout(function(){ t.style.visibility = "hidden"; }, 3000);
+  function copyPix() {
+    const text = document.getElementById("pixKey").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const feedback = document.getElementById("copyFeedback");
+      feedback.style.display = "block";
+      setTimeout(() => { feedback.style.display = "none"; }, 3000);
+    });
   }
 </script>
+
 </body>
 </html>

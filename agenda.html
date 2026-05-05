@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda | Comunidade Cristã No Caminho</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  :root { --verde: #2A4035; --dourado: #B8893A; --branco: #FDFAF4; --creme: #F5EDD8; }
+  body { font-family: 'Lato', sans-serif; background: var(--branco); margin: 0; color: #333; }
+  nav { background: var(--verde); padding: 1rem; text-align: center; }
+  nav a { color: var(--creme); text-decoration: none; font-weight: 700; text-transform: uppercase; margin: 0 1rem; }
+  .header { background: var(--verde); color: var(--creme); padding: 4rem 2rem; text-align: center; }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 1rem; }
+  .container { max-width: 1000px; margin: 3rem auto; padding: 0 2rem; }
+  .agenda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .day-card { border-left: 4px solid var(--dourado); background: white; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+  .day-card h3 { color: var(--verde); font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+  .time { font-weight: 700; color: var(--dourado); display: block; margin-top: 0.5rem; }
+  .duration { font-size: 0.85rem; color: #666; font-style: italic; }
+  .highlight { background: var(--creme); padding: 1.5rem; border-radius: 4px; margin-top: 2rem; border: 1px dashed var(--dourado); }
+</style>
+</head>
+<body>
+<nav><a href="index.html">Início</a><a href="quem-somos.html">Quem Somos</a><a href="contribuicao.html">Contribuição</a></nav>
+<div class="header">
+  <h1>Nossa Agenda</h1>
+  <p>Palavra, Oração e Comunhão em Campinas-SP</p>
+</div>
+<div class="container">
+  <div class="agenda-grid">
+    <div class="day-card">
+      <h3>Terça-Feira</h3>
+      <p><strong>Estudo Bíblico:</strong> Crescimento em conhecimento e graça.</p>
+      <span class="time">19:30 – 21:15</span>
+    </div>
+    <div class="day-card">
+      <h3>Quinta-Feira</h3>
+      <p><strong>Culto Público:</strong> Renovação de forças e adoração.</p>
+      <span class="time">19:30 – 21:15</span>
+    </div>
+    <div class="day-card">
+      <h3>Sábado (Programação Especial)</h3>
+      <p>1º: Culto das Irmãs 🌸<br>2º: Não temos culto 🤝<br>3º: Culto de Missões 🌍<br>4º: Culto da Juventude 🔥</p>
+      <span class="time">19:30 – 21:15</span>
+    </div>
+  </div>
+  <div class="highlight">
+    <h3>🍞 2º Domingo do Mês: Ceia do Senhor</h3>
+    <p><strong>07:30 – 08:30:</strong> Oração</p>
+    <p><strong>08:30 – 10:00:</strong> Início do Culto e Celebração da Ceia</p>
+    <h3>🍞 4º Domingo do Mês: Cooperação de Missões (Bairro) </h3>
+    <p><strong>19:00:</strong> Início do Culto</p>    
+  </div>
+</div>
+</body>
+</html>
