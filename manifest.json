@@ -1,0 +1,16 @@
+{
+  "name": "No Caminho - Comunidade Cristã",
+  "short_name": "No Caminho",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#2A4035",
+  "theme_color": "#2A4035",
+  "description": "Aplicativo da Comunidade Cristã No Caminho em Campinas-SP",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3667/3667232.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
