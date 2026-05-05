@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contribuição | Comunidade Cristã No Caminho</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+  :root { --verde: #2A4035; --dourado: #B8893A; --creme: #F5EDD8; --branco: #FDFAF4; }
+  body { font-family: 'Lato', sans-serif; background: var(--branco); margin: 0; text-align: center; }
+  nav { background: var(--verde); padding: 1rem; }
+  nav a { color: var(--creme); text-decoration: none; font-weight: 700; text-transform: uppercase; }
+  .header { padding: 4rem 2rem; background: var(--verde); color: var(--creme); }
+  .header h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; }
+  .container { max-width: 900px; margin: 4rem auto; padding: 0 2rem; }
+  .box { background: var(--creme); padding: 3rem; border-radius: 8px; border: 2px solid var(--dourado); margin-bottom: 2rem; }
+  .pix-key { font-size: 1.5rem; font-weight: 700; color: var(--verde); margin: 1.5rem 0; display: block; }
+  .btn { background: var(--verde); color: white; padding: 1rem 2rem; border: none; cursor: pointer; font-weight: 700; text-transform: uppercase; }
+  .social-icons { margin-top: 2rem; font-size: 3rem; display: flex; justify-content: center; gap: 2rem; }
+  .social-icons a { color: var(--verde); transition: 0.3s; }
+  .social-icons a:hover { color: var(--dourado); }
+  #toast { visibility: hidden; background: var(--verde); color: white; padding: 1rem; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); border-radius: 4px; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">← Voltar para a Página Inicial</a></nav>
+<div class="header">
+  <h1>Contribuição & Social</h1>
+  <p>Ajude a manter esta obra e acompanhe-nos online.</p>
+</div>
+<div class="container">
+  <div class="box">
+    <h2>Dízimos e Ofertas via Pix</h2>
+    <p>Utilize nossa chave CNPJ abaixo:</p>
+    <span class="pix-key" id="key">64.757.502/0001-44</span>
+    <button class="btn" onclick="copy()">Copiar Chave Pix</button>
+  </div>
+  <h2>Nossas Redes Sociais</h2>
+  <div class="social-icons">
+    <a href="https://instagram.com/comunidadecristanocaminho" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/channel/UCBvavSIjvMEBl39kCTrk2Nw" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
+<div id="toast">Chave copiada com sucesso!</div>
+<script>
+  function copy() {
+    navigator.clipboard.writeText("64.757.502/0001-44");
+    var t = document.getElementById("toast");
+    t.style.visibility = "visible";
+    setTimeout(function(){ t.style.visibility = "hidden"; }, 3000);
+  }
+</script>
+</body>
+</html>
