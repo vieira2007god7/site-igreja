@@ -6,11 +6,12 @@
   "background_color": "#2A4035",
   "theme_color": "#2A4035",
   "description": "Aplicativo da Comunidade Cristã No Caminho em Campinas-SP",
-  "icons": [
-    {
-      "src": "https://cdn-icons-png.flaticon.com/512/3667/3667232.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+ "icons": [
+  {
+    "src": "https://img.icons8.com/color/512/chapel.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }
+ ]
 }
