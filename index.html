@@ -1,135 +1,903 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- Configurações de Aplicativo (PWA) Atualizadas -->
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#2A4035">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="No Caminho">
-
-<!-- Link de ícone alternativo e estável -->
-<link rel="icon" type="image/png" href="https://img.icons8.com/color/512/chapel.png">
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('App No Caminho: Totalmente Operacional'))
-        .catch(err => console.error('Erro no App:', err));
-    });
-  }
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comunidade Cristã No Caminho - Igreja Evangélica Reformada em Campinas-SP. Confira nossa agenda, ministérios e entre em contato.">
+<meta name="theme-color" content="#0F3A5C">
 <title>Comunidade Cristã No Caminho | Campinas-SP</title>
+
+<!-- CONEXÃO PWA: Manifest[cite: 3] -->
+<link rel="manifest" href="manifest.json">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+
 <style>
-  :root { --verde: #2A4035; --dourado: #B8893A; --dourado-claro: #D4A855; --creme: #F5EDD8; --branco: #FDFAF4; --texto: #1E2D25; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Lato', sans-serif; background: var(--branco); color: var(--texto); line-height: 1.6; }
-  
-  /* Navigation */
-  nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(42, 64, 53, 0.97); display: flex; justify-content: space-between; padding: 0 2rem; height: 64px; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; color: var(--creme); text-decoration: none; font-weight: 600; font-size: 1.2rem; }
-  .nav-logo span { color: var(--dourado); }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { color: var(--creme); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-  .nav-links a:hover { color: var(--dourado); }
+/* ... (Todo o CSS original mantido sem alterações) ... */
+:root {
+  --primary: #0F3A5C;
+  --primary-light: #1B5E8F;
+  --primary-dark: #062A43;
+  --accent: #D4A574;
+  --accent-light: #E8BFA3;
+  --white: #FFFFFF;
+  --gray-light: #F8F9FA;
+  --gray-dark: #2C3E50;
+  --text: #1A1A1A;
+  --border: #E0E0E0;
+  --success: #27AE60;
+}
 
-  /* Hero Section */
-  #inicio { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=1500'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--creme); padding: 0 1rem; }
-  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; }
-  .hero-title em { font-style: italic; color: var(--dourado); }
-  .hero-cta { display: inline-block; background: var(--dourado); color: white; padding: 1.2rem 2.5rem; text-decoration: none; font-weight: 700; text-transform: uppercase; border-radius: 2px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-  .hero-cta:hover { background: var(--dourado-claro); transform: translateY(-2px); }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Sections */
-  section { padding: 6rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin-bottom: 3rem; text-align: center; color: var(--verde); }
+html {
+  scroll-behavior: smooth;
+}
 
-  /* Grid System */
-  .min-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-  .min-card { background: white; border: 1px solid rgba(42,64,53,0.1); padding: 2.5rem; text-decoration: none; color: inherit; transition: 0.4s ease; display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .min-card i { font-size: 2.5rem; color: var(--dourado); margin-bottom: 1.5rem; }
-  .min-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 1rem; color: var(--verde); }
-  .min-card p { font-size: 0.95rem; color: #555; }
-  .min-card:hover { border-color: var(--dourado); transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-  /* Footer */
-  footer { background: var(--verde); color: var(--creme); padding: 4rem 2rem; text-align: center; }
-  .footer-info { margin-bottom: 2rem; }
-  .footer-info p { margin: 0.5rem 0; opacity: 0.8; }
-  .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; }
-  .social-links a { color: var(--creme); font-size: 1.5rem; transition: 0.3s; }
-  .social-links a:hover { color: var(--dourado); }
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  background: rgba(15, 58, 92, 0.98);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.2rem;
+  font-family: 'Crimson Text', serif;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+#hero {
+  margin-top: 70px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.hero-content {
+  max-width: 700px;
+  text-align: center;
+  color: var(--white);
+  animation: fadeInUp 1s ease;
+  z-index: 2;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-title {
+  font-family: 'Crimson Text', serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--text);
+}
+
+.btn-primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--text);
+}
+
+section {
+  padding: 6rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Crimson Text', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--gray-dark);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 1.5rem auto;
+  border-radius: 2px;
+}
+
+#ministerios {
+  background: var(--gray-light);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border-color: var(--accent);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: var(--gray-dark);
+  line-height: 1.7;
+}
+
+#agenda {
+  background: white;
+}
+
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.agenda-item {
+  border-left: 5px solid var(--accent);
+  padding: 2rem;
+  background: var(--gray-light);
+  border-radius: 5px;
+}
+
+.agenda-day {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.agenda-event {
+  color: var(--gray-dark);
+  margin: 0.5rem 0;
+}
+
+.agenda-time {
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+#localizacao {
+  background: var(--primary);
+  color: white;
+}
+
+#localizacao .section-title {
+  color: white;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+
+.location-info h3 {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.location-info p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.map-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  height: 400px;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: var(--gray-light);
+  padding: 3rem;
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 58, 92, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.form-submit:hover {
+  background: var(--primary-dark);
+}
+
+.success-message {
+  display: none;
+  padding: 1.5rem;
+  background: var(--success);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+footer {
+  background: var(--primary-dark);
+  color: white;
+  padding: 4rem 2rem 2rem;
+  border-top: 3px solid var(--accent);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-section h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.footer-section p {
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  width: 45px;
+  height: 45px;
+  background: var(--accent);
+  color: var(--text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--accent-light);
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background: var(--primary);
+    width: 100%;
+    padding: 1rem;
+    gap: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
+
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">Comunidade Cristã <span>No Caminho</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Início</a></li>
+<a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+
+<nav role="navigation" aria-label="Menu principal">
+  <a href="index.html" class="nav-brand">
+    ✝️ No Caminho
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#inicio">Início</a></li>
     <li><a href="quem-somos.html">Quem Somos</a></li>
-    <li><a href="agenda.html">Agenda</a></li>
-    <li><a href="contribuicao.html">Contribuição</a></li>
+    <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#localizacao">Localização</a></li>
+    <!-- LINK ADICIONADO[cite: 1] -->
+    <li><a href="contribuicao.html">Contribuição</a></li> 
+    <li><a href="#contato">Cadastro</a></li>
   </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<section id="inicio">
-  <div>
-    <h1 class="hero-title">Uma Família<br><em>No Caminho</em></h1>
-    <a href="agenda.html" class="hero-cta">Ver Agenda de Cultos</a>
+<section id="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-icon">✝️</div>
+    <h1 class="hero-title">Uma Família No Caminho</h1>
+    <p class="hero-subtitle">Igreja Evangélica Reformada — Campinas, SP</p>
+    <p style="font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.95;">Comunhão, Verdade e Ação — Baseados na Palavra de Deus</p>
+    <div class="cta-buttons">
+      <a href="#contato" class="btn btn-primary">Cadastre-se Agora</a>
+      <a href="https://wa.me/5519998532764?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20comunidade" class="btn btn-secondary" target="_blank">Fale no WhatsApp</a>
+    </div>
   </div>
 </section>
 
-<section id="navegacao">
+<section id="ministerios">
   <div class="container">
-    <h2 class="section-title">Conheça Nossa Comunidade</h2>
-    <div class="min-grid">
-      <!-- Quem Somos -->
-      <a href="quem-somos.html" class="min-card">
-        <i class="fas fa-church"></i>
-        <h3>Quem Somos</h3>
-        <p>Nossa história, identidade reformada e os fundamentos da nossa fé baseados nos 5 Solas.</p>
+    <h2 class="section-title">Nossos Ministérios</h2>
+    <p class="section-subtitle">Espaços de crescimento, comunhão e impacto</p>
+    <div class="divider"></div>
+
+    <div class="grid">
+      <a href="irmas.html" class="card">
+        <div class="card-icon">🙏</div>
+        <h3 class="card-title">Ministério Irmãs</h3>
+        <p class="card-text">Comunhão entre mulheres cristãs. Estudos bíblicos, oração e apoio mútuo. Reunião: 1º sábado às 19:30</p>
       </a>
 
-      <!-- Agenda -->
-      <a href="agenda.html" class="min-card">
-        <i class="fas fa-calendar-alt"></i>
-        <h3>Nossa Agenda</h3>
-        <p>Horários de estudos, cultos públicos e programações especiais de sábado e domingo.</p>
+      <a href="missoes.html" class="card">
+        <div class="card-icon">🌍</div>
+        <h3 class="card-title">Ministério Missões</h3>
+        <p class="card-text">Evangelização e ação missionária. Apoio a projetos locais e internacionais. Reunião: 3º sábado às 19:30</p>
       </a>
 
-      <!-- Contribuição -->
-      <a href="contribuicao.html" class="min-card">
-        <i class="fas fa-heart"></i>
-        <h3>Contribuição</h3>
-        <p>Informações sobre dízimos, ofertas e como apoiar a manutenção desta obra em Campinas.</p>
+      <a href="juventude.html" class="card">
+        <div class="card-icon">⚡</div>
+        <h3 class="card-title">Ministério Juventude</h3>
+        <p class="card-text">Jovens com propósito. Louvor, discipulado e ação social. Reunião: 4º sábado às 19:30</p>
+      </a>
+
+      <a href="cooperacao.html" class="card">
+        <div class="card-icon">🤝</div>
+        <h3 class="card-title">Cooperação Externa</h3>
+        <p class="card-text">Parcerias estratégicas com outras igrejas e ministérios. Reunião: 2º sábado às 19:30</p>
       </a>
     </div>
   </div>
 </section>
 
-<footer id="contato">
-  <div class="footer-info">
-    <p><strong>Comunidade Cristã No Caminho</strong></p>
-    <p>Rua Rafael Paulo Teixeira de Oliveira, 224 - Vila Lafayette Álvaro</p>
-    <p>Campinas - SP</p>
-    <p>CNPJ: 64.757.502/0001-44</p>
+<section id="agenda">
+  <div class="container">
+    <h2 class="section-title">Programação Semanal</h2>
+    <p class="section-subtitle">Confira nossos encontros e cultos</p>
+    <div class="divider"></div>
+
+    <div class="agenda-grid">
+      <div class="agenda-item">
+        <div class="agenda-day">Terça-Feira 📖</div>
+        <div class="agenda-event"><strong>Estudo Bíblico</strong></div>
+        <div class="agenda-time">19:30 – 21:15</div>
+        <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">Aprofundamento nas Escrituras</p>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-day">Quinta-Feira 🙏</div>
+        <div class="agenda-event"><strong>Culto Público</strong></div>
+        <div class="agenda-time">19:30 – 21:15</div>
+        <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">Louvor, Palavra e Comunhão</p>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-day">Sábado Especial 🎉</div>
+        <div class="agenda-event"><strong>Programação Mensal</strong></div>
+        <div class="agenda-time">19:30 – 21:15</div>
+        <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">Irmãs • Cooperação • Missões • Juventude</p>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-day">2º Domingo 🍞</div>
+        <div class="agenda-event"><strong>Ceia do Senhor</strong></div>
+        <div class="agenda-time">07:30 – 10:00</div>
+        <p style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">Celebração comunitária</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--gray-light); border-radius: 10px; text-align: center; border: 2px dashed var(--accent);">
+      <strong style="color: var(--primary);">📍 Todos os cultos na:</strong><br>
+      Rua Rafael Paulo Teixeira de Oliveira, 224 — Campinas-SP
+    </div>
   </div>
-  
-  <div class="social-links">
-    <a href="https://instagram.com/comunidadecristanocaminho" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/channel/UCBvavSIjvMEBl39kCTrk2Nw" target="_blank"><i class="fab fa-youtube"></i></a>
+</section>
+
+<section id="localizacao">
+  <div class="container">
+    <h2 class="section-title">Onde Estamos</h2>
+    <div class="divider"></div>
+
+    <div class="location-grid">
+      <div class="location-info">
+        <h3>📍 Endereço</h3>
+        <p>Rua Rafael Paulo Teixeira de Oliveira, 224<br>Vila Lafayette Álvaro<br>Campinas — SP</p>
+
+        <h3>⏰ Horários</h3>
+        <p><strong>Terça:</strong> 19:30 – 21:15<br>
+        <strong>Quinta:</strong> 19:30 – 21:15<br>
+        <strong>Sábado:</strong> 19:30 – 21:15<br>
+        <strong>Domingo:</strong> 08:30 – 10:00</p>
+
+        <h3>📞 Contato</h3>
+        <p>WhatsApp: <a href="https://wa.me/5519998532764" style="color: var(--accent); text-decoration: none; font-weight: 600;" target="_blank">+55 19 99985-3276</a><br>
+        Instagram: <a href="https://instagram.com/comunidadecristanocaminho" style="color: var(--accent); text-decoration: none; font-weight: 600;" target="_blank">@comunidadecristanocaminho</a></p>
+
+        <h3>🆔 CNPJ</h3>
+        <p>64.757.502/0001-44</p>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3675.244!2d-47.020389!3d-22.880250!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDUyJzQ4LjkiUyA0N8KwMDEnMTMuNCJX!5e0!3m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Mapa de localização da igreja"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container">
+    <h2 class="section-title">Entre em Contato</h2>
+    <p class="section-subtitle">Deixe seus dados para que possamos entrar em contato</p>
+    <div class="divider"></div>
+
+    <div class="form-container">
+      <div class="success-message" id="successMsg">✅ Mensagem enviada com sucesso! Entraremos em contato em breve.</div>
+      
+      <form id="contactForm" name="contact-form">
+        <div class="form-group">
+          <label for="name">Nome Completo *</label>
+          <input type="text" id="name" name="nome" required aria-required="true" placeholder="Seu nome">
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp para Contato *</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required aria-required="true" placeholder="(19) 9 9999-9999">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email (opcional)</label>
+          <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="ministerio">Interesse em qual ministério?</label>
+          <select id="ministerio" name="ministerio">
+            <option value="">Selecione...</option>
+            <option value="irmas">Ministério Irmãs</option>
+            <option value="missoes">Ministério Missões</option>
+            <option value="juventude">Ministério Juventude</option>
+            <option value="cooperacao">Cooperação Externa</option>
+            <option value="geral">Informações Gerais</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem (opcional)</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Enviar Cadastro</button>
+        <p style="font-size: 0.85rem; text-align: center; color: var(--gray-dark); margin-top: 1rem;">Seus dados serão usados apenas para contato. Nunca compartilhamos informações.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-section">
+      <h4>Comunidade Cristã No Caminho</h4>
+      <p><strong>Igreja Evangélica Reformada</strong></p>
+      <p>Fundada em 2026, dedicada ao ensino bíblico, comunhão e ação missionária em Campinas.</p>
+      <div class="social-links">
+        <a href="https://instagram.com/comunidadecristanocaminho" target="_blank" aria-label="Instagram" title="Instagram">📱</a>
+        <a href="https://wa.me/5519998532764" target="_blank" aria-label="WhatsApp" title="WhatsApp">💬</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Rafael+Paulo+Teixeira+de+Oliveira+224+Campinas" target="_blank" aria-label="Google Maps" title="Localização">📍</a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4>Navegação Rápida</h4>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#ministerios">Ministérios</a>
+        <a href="#localizacao">Localização</a>
+        <!-- LINK ADICIONADO NO FOOTER[cite: 1] -->
+        <a href="contribuicao.html">Contribuição</a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contato</h4>
+      <p>📍 Rua Rafael Paulo Teixeira de Oliveira, 224<br>Campinas — SP</p>
+      <p>📞 WhatsApp: <a href="https://wa.me/5519998532764" style="color: var(--accent);" target="_blank">+55 19 99985-3276</a></p>
+      <p>🆔 CNPJ: 64.757.502/0001-44</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Nossa Fé</h4>
+      <p>Baseados nos 5 Solas da Reforma Protestante:</p>
+      <p style="font-size: 0.9rem;">
+        <strong>Sola Scriptura • Solus Christus • Sola Gratia • Sola Fide • Soli Deo Gloria</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Comunidade Cristã No Caminho. Todos os direitos reservados. | Desenvolvido com ❤️ para servir a Cristo</p>
   </div>
 </footer>
+
+<script>
+// REGISTRO DO SERVICE WORKER[cite: 4]
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('SW Registered:', reg))
+      .catch(err => console.log('SW Error:', err));
+  });
+}
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+hamburger.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    navLinks.classList.toggle('active');
+  }
+});
+
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(contactForm);
+  const data = {
+    name: formData.get('nome'),
+    whatsapp: formData.get('whatsapp'),
+    email: formData.get('email'),
+    ministerio: formData.get('ministerio'),
+    mensagem: formData.get('mensagem'),
+    timestamp: new Date().toLocaleString('pt-BR')
+  };
+
+  console.log('Dados do formulário:', data);
+  
+  document.getElementById('successMsg').style.display = 'block';
+  contactForm.reset();
+  
+  setTimeout(() => {
+    document.getElementById('successMsg').style.display = 'none';
+  }, 5000);
+
+  const whatsappMessage = `Olá! Meu nome é ${data.name}\nWhatsApp: ${data.whatsapp}\nInteresse: ${data.ministerio}\nMensagem: ${data.mensagem}`;
+  window.open(`https://wa.me/5519998532764?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+</script>
 
 </body>
 </html>

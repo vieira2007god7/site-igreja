@@ -1,42 +1,105 @@
+<!-- ARQUIVO MINISTÉRIOS: Copie cada seção para um arquivo .html separado -->
+
+<!-- ===== IRMAS.HTML ===== -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ministério Irmãs | Comunidade Cristã No Caminho</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --verde: #2A4035; --dourado: #B8893A; --creme: #F5EDD8; --branco: #FDFAF4; --texto: #1E2D25;
-  }
-  body { font-family: 'Lato', sans-serif; background: var(--branco); color: var(--texto); margin: 0; }
-  nav { background: var(--verde); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-  nav a { color: var(--creme); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; }
-  .hero { background: var(--verde); color: var(--creme); padding: 6rem 2rem; text-align: center; }
-  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin: 0; }
-  .container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; line-height: 1.8; }
-  .cta-box { background: var(--creme); padding: 2rem; border-radius: 4px; text-align: center; margin-top: 3rem; }
-  .btn { display: inline-block; background: var(--dourado); color: white; padding: 0.8rem 2rem; text-decoration: none; font-weight: 700; border-radius: 2px; }
-  footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: #888; }
+:root { --primary: #0F3A5C; --primary-light: #1B5E8F; --accent: #D4A574; --white: #FFFFFF; --gray-light: #F8F9FA; --gray-dark: #2C3E50; --text: #1A1A1A; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--text); line-height: 1.6; }
+
+nav { position: fixed; top: 0; width: 100%; z-index: 99; background: rgba(15, 58, 92, 0.98); padding: 0 2rem; height: 70px; display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { text-decoration: none; color: white; font-weight: 700; font-family: 'Crimson Text', serif; }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+section { padding: 6rem 2rem; margin-top: 70px; }
+.container { max-width: 1000px; margin: 0 auto; }
+.hero-section { background: linear-gradient(135deg, #2d5a7b 0%, var(--primary-light) 100%); color: white; text-align: center; padding: 4rem 2rem; }
+h1 { font-family: 'Crimson Text', serif; font-size: 3rem; margin: 0; }
+h2 { font-family: 'Crimson Text', serif; font-size: 2rem; color: var(--primary); margin: 2rem 0 1rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 2rem 0; }
+.card { background: var(--gray-light); padding: 2rem; border-radius: 8px; border-left: 5px solid var(--accent); }
+.card h3 { color: var(--primary); margin-bottom: 1rem; }
+
+.cta-section { background: var(--primary); color: white; padding: 3rem; border-radius: 10px; text-align: center; margin: 3rem 0; }
+.btn { display: inline-block; background: var(--accent); color: var(--text); padding: 1rem 2.5rem; text-decoration: none; border-radius: 5px; font-weight: 600; margin-top: 1rem; transition: 0.3s; }
+.btn:hover { background: #e8c8a0; }
+
+footer { background: #062A43; color: white; padding: 2rem; text-align: center; border-top: 3px solid var(--accent); margin-top: 3rem; }
+
+@media (max-width: 768px) {
+  section { padding: 3rem 1.5rem; }
+  h1 { font-size: 2rem; }
+  nav { padding: 0 1rem; }
+}
 </style>
 </head>
 <body>
+
 <nav>
-  <a href="index.html">← Voltar para Início</a>
-  <a href="index.html#cadastro">Contato</a>
+  <a href="index.html" class="nav-brand">✝️ No Caminho</a>
+  <ul class="nav-links">
+    <li><a href="index.html#ministerios">← Voltar</a></li>
+    <li><a href="index.html#contato">Cadastro</a></li>
+  </ul>
 </nav>
-<div class="hero">
-  <div style="font-size: 3rem; margin-bottom: 1rem;">🌸</div>
+
+<div class="hero-section">
+  <div style="font-size: 3rem; margin-bottom: 1rem;">🙏</div>
   <h1>Ministério Irmãs</h1>
+  <p style="font-size: 1.1rem; opacity: 0.9;">Comunhão, força e sabedoria para mulheres cristãs</p>
 </div>
-<div class="container">
-  <p>O Ministério de Mulheres é dedicado ao fortalecimento espiritual e apoio mútuo. Nossos círculos de oração e estudos temáticos visam capacitar a mulher cristã em suas diversas esferas de atuação: família, trabalho e comunidade.</p>
-  <div class="cta-box">
-    <h3>Quer saber mais ou participar?</h3>
-    <p>Entre em contato conosco agora mesmo via WhatsApp.</p>
-    <a href="https://wa.me/5519998532764" class="btn">Falar no WhatsApp</a>
+
+<section>
+  <div class="container">
+    <h2>Quem Somos</h2>
+    <p>O Ministério Irmãs é um espaço seguro onde mulheres cristãs se reúnem para crescer espiritualmente, compartilhar experiências de fé e apoiar-se mutuamente. Buscamos fortalecimento bíblico, oração fervorosa e ação prática no reino de Deus.</p>
+    
+    <h2>O que Fazemos</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>📖 Estudos Bíblicos</h3>
+        <p>Análise profunda das Escrituras aplicada à realidade das mulheres contemporâneas.</p>
+      </div>
+      <div class="card">
+        <h3>🤝 Círculos de Oração</h3>
+        <p>Encontros de intercessão pelo lar, família e comunidade.</p>
+      </div>
+      <div class="card">
+        <h3>💪 Orientação Familiar</h3>
+        <p>Conversas sobre casamento, maternidade e vida prática cristã.</p>
+      </div>
+      <div class="card">
+        <h3>🎯 Ação Social</h3>
+        <p>Projetos práticos de amor ao próximo e cuidado comunitário.</p>
+      </div>
+    </div>
+
+    <h2>Reuniões</h2>
+    <p><strong>1º Sábado de cada mês</strong> às 19:30<br>Local: Rua Rafael Paulo Teixeira de Oliveira, 224 — Campinas-SP</p>
+
+    <div class="cta-section">
+      <h3>Junte-se a Nós</h3>
+      <p>Toda mulher cristã é bem-vinda! Venha vivenciar o poder da comunhão feminina na fé.</p>
+      <a href="https://wa.me/5519998532764?text=Olá!%20Gostaria%20de%20participar%20do%20Ministério%20Irmãs" class="btn" target="_blank">Fale no WhatsApp →</a>
+    </div>
   </div>
-</div>
-<footer>© 2026 Comunidade Cristã No Caminho</footer>
+</section>
+
+<footer>
+  <p>&copy; 2026 Comunidade Cristã No Caminho | CNPJ: 64.757.502/0001-44</p>
+</footer>
+
 </body>
 </html>

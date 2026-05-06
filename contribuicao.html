@@ -4,95 +4,517 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contribuição | Comunidade Cristã No Caminho</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root { --verde: #2A4035; --verde-claro: #3d5c4c; --dourado: #B8893A; --branco: #FDFAF4; --creme: #F5EDD8; }
-  
-  body { font-family: 'Lato', sans-serif; background: var(--branco); margin: 0; color: var(--verde); overflow-x: hidden; }
-  
-  /* Navigation */
-  nav { background: var(--verde); padding: 1.2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-  nav a { color: var(--creme); text-decoration: none; font-weight: 700; text-transform: uppercase; margin: 0 1.2rem; font-size: 0.85rem; letter-spacing: 1px; transition: color 0.3s; }
-  nav a:hover { color: var(--dourado); }
+:root {
+  --primary: #0F3A5C;
+  --primary-light: #1B5E8F;
+  --primary-dark: #062A43;
+  --accent: #D4A574;
+  --accent-light: #E8BFA3;
+  --white: #FFFFFF;
+  --gray-light: #F8F9FA;
+  --gray-dark: #2C3E50;
+  --text: #1A1A1A;
+  --border: #E0E0E0;
+  --success: #27AE60;
+}
 
-  /* Hero Section */
-  .hero-contrib { background: linear-gradient(rgba(42,64,53,0.9), rgba(42,64,53,0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&q=80&w=1000'); background-size: cover; background-position: center; color: var(--creme); padding: 5rem 2rem; text-align: center; }
-  .hero-contrib h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin: 0; }
-  .hero-contrib p { font-style: italic; max-width: 600px; margin: 1rem auto; opacity: 0.9; font-size: 1.1rem; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .container { max-width: 1000px; margin: -3rem auto 4rem; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+html {
+  scroll-behavior: smooth;
+}
 
-  /* Cards */
-  .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 15px 35px rgba(42,64,53,0.08); border: 1px solid var(--creme); transition: transform 0.3s ease; }
-  .card:hover { transform: translateY(-5px); }
-  .card h2 { font-family: 'Cormorant Garamond', serif; color: var(--dourado); font-size: 2rem; margin-top: 0; border-bottom: 2px solid var(--creme); padding-bottom: 0.5rem; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-  /* PIX Section */
-  .pix-container { text-align: center; background: var(--creme); padding: 2rem; border-radius: 8px; border: 2px dashed var(--dourado); margin-top: 1.5rem; }
-  .pix-key { font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.3rem; color: var(--verde); display: block; margin-bottom: 1rem; }
-  .copy-btn { background: var(--verde); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 5px; cursor: pointer; font-weight: 700; text-transform: uppercase; transition: background 0.3s; width: 100%; }
-  .copy-btn:hover { background: var(--verde-claro); }
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  background: rgba(15, 58, 92, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
-  /* Bank Details */
-  .detail { margin-bottom: 1.2rem; display: flex; justify-content: space-between; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.4rem; }
-  .detail strong { font-size: 0.75rem; text-transform: uppercase; color: var(--dourado); letter-spacing: 0.5px; }
-  .detail span { font-weight: 700; font-size: 1rem; }
+.nav-brand {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.2rem;
+  font-family: 'Crimson Text', serif;
+}
 
-  @media (max-width: 768px) { .container { grid-template-columns: 1fr; margin-top: 2rem; } }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+section {
+  padding: 6rem 2rem;
+  margin-top: 70px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: 'Crimson Text', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 1.5rem auto;
+  border-radius: 2px;
+}
+
+h2 {
+  font-family: 'Crimson Text', serif;
+  font-size: 2rem;
+  color: var(--primary);
+  margin: 2rem 0 1.5rem;
+}
+
+p {
+  color: var(--gray-dark);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.card {
+  background: var(--gray-light);
+  padding: 2.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.pix-section {
+  background: white;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.pix-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.pix-key {
+  font-family: 'Courier New', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--gray-light);
+  padding: 1rem;
+  border-radius: 5px;
+  word-break: break-all;
+  margin-bottom: 1.5rem;
+  border: 1px dashed var(--accent);
+}
+
+.copy-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 400px;
+}
+
+.copy-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.copy-feedback {
+  display: none;
+  color: var(--success);
+  font-weight: 700;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.bank-details {
+  background: var(--gray-light);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.detail-value {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1rem;
+  text-align: right;
+}
+
+.cta-section {
+  background: var(--primary);
+  color: white;
+  padding: 3rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.cta-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text);
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.info-box {
+  background: var(--gray-light);
+  border-left: 5px solid var(--accent);
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: 2rem 0;
+}
+
+.info-box strong {
+  color: var(--primary);
+}
+
+footer {
+  background: var(--primary-dark);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 3px solid var(--accent);
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1.5rem;
+    margin-top: 70px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  nav {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-value {
+    text-align: left;
+    margin-top: 0.5rem;
+  }
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html">Início</a>
-  <a href="quem-somos.html">Quem Somos</a>
-  <a href="agenda.html">Agenda</a>
+  <a href="index.html" class="nav-brand">✝️ No Caminho</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="quem-somos.html">Quem Somos</a></li>
+    <li><a href="index.html#agenda">Agenda</a></li>
+    <li><a href="index.html#contato">Cadastro</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<div class="hero-contrib">
-  <h1>Generosidade</h1>
-  <p>"Cada um contribua conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria." — 2 Co 9:7</p>
+<div class="hero-section">
+  <h1 class="section-title">Contribuições</h1>
+  <p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">Apoie o trabalho do Evangelho em Campinas</p>  
+  <div class="divider"></div>
+  <p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">
+    "Cada um contribua conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria." — 2 Coríntios 9:7
+  </p>
 </div>
 
-<div class="container">
-  <!-- Card PIX -->
-  <div class="card">
-    <h2>Contribuição Rápida</h2>
-    <p>Aponte o celular para o QR Code ou use a chave CNPJ abaixo para realizar sua oferta via PIX.</p>
-    <div class="pix-container">
-      <strong>Chave CNPJ</strong>
-      <span class="pix-key" id="pixKey">64.757.502/0001-44</span>
-      <button class="copy-btn" onclick="copyPix()">Copiar Chave PIX</button>
-      <p id="copyFeedback" style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--dourado); display: none;">Copiado com sucesso!</p>
+<section>
+  <div class="container">
+    <h2>Por que Contribuir?</h2>
+    <p>Sua contribuição financia a manutenção do espaço, realização de cultos, apoio a missionários e ações sociais em Campinas. Todo valor contribuído é destinado à obra do Evangelho e utilizado com transparência.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">📍</div>
+        <h3>Manutenção do Espaço</h3>
+        <p>Aluguel, limpeza, utilities e manutenção do local de culto.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>Materiais Educativos</h3>
+        <p>Bíblias, estudos, impressos para discipulado e formação.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3>Apoio Missionário</h3>
+        <p>Sustento de missionários e projetos evangelísticos locais e internacionais.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤲</div>
+        <h3>Ação Social</h3>
+        <p>Ajuda aos necessitados, campanhas solidárias e projetos comunitários.</p>
+      </div>
+    </div>
+
+    <h2>Formas de Contribuir</h2>
+
+    <!-- PIX -->
+    <div class="pix-section">
+      <div class="pix-label">💳 PIX — Rápido e Seguro</div>
+      <p style="color: var(--gray-dark); margin-bottom: 1.5rem;">Copie a chave CNPJ:</p>
+      
+      <div class="pix-key" id="pixKey">64.757.502/0001-44</div>
+      
+      <button class="copy-btn" onclick="copyPix()">📋 Copiar Chave PIX</button>
+      <div class="copy-feedback" id="copyFeedback">✅ Copiado com sucesso!</div>
+      
+      <p style="color: var(--gray-dark); font-size: 0.85rem; margin-top: 1.5rem;">
+        <strong>Favorecido:</strong> Comunidade Cristã No Caminho<br>
+        <strong>CNPJ:</strong> 64.757.502/0001-44
+      </p>
+    </div>
+
+    <!-- Dados Bancários -->
+    <h2>Transferência Bancária</h2>
+    <p>Para TED, DOC ou transferência direta, utilize os dados abaixo:</p>
+    
+    <div class="bank-details">
+      <div class="detail-row">
+        <div class="detail-label">Favorecido</div>
+        <div class="detail-value">No Caminho</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Banco</div>
+        <div class="detail-value">Cora SCD</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Agência</div>
+        <div class="detail-value">0001</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Conta</div>
+        <div class="detail-value">6736893-8</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Tipo de Conta</div>
+        <div class="detail-value">Conta Corrente</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">CNPJ</div>
+        <div class="detail-value">64.757.502/0001-44</div>
+      </div>
+    </div>
+
+    <!-- Dinheiro em Espécie -->
+    <h2>Contribuição em Espécie</h2>
+    <p>Você pode entregar sua contribuição em dinheiro diretamente durante os cultos ou reuniões. Procure por Alessandro ou qualquer membro da liderança.</p>
+    
+    <div class="info-box">
+      <strong>📍 Local:</strong> Rua Rafael Paulo Teixeira de Oliveira, 224 — Campinas-SP<br>
+      <strong>⏰ Cultos:</strong> Terça e Quinta às 19:30 | Sábado às 19:30 | Domingo às 08:30
+    </div>
+
+    <!-- Transparência -->
+    <h2>Transparência Financeira</h2>
+    <p>Nossa comunidade se compromete com a transparência no uso de recursos. Para informações detalhadas sobre como seus dízimos e ofertas são utilizados, entre em contato conosco via WhatsApp.</p>
+
+    <div class="cta-section">
+      <h3>Dúvidas sobre Contribuição?</h3>
+      <p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">Entre em contato conosco pelo WhatsApp. Ficaremos felizes em esclarecer qualquer        dúvida!</p>
+      <a href="https://wa.me/5519998532764?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20como%20contribuir%20com%20a%20comunidade" class="btn" target="_blank">
+        💬 Fale no WhatsApp →
+      </a>
+    </div>
+
+    <!-- Nota Final -->
+    <div class="info-box" style="border-left-color: var(--success);">
+      <strong style="color: var(--success);">🙏 Sua Contribuição Importa</strong><br>
+      Independente do valor, sua contribuição demonstra compromisso com a obra de Deus. Lembre-se: "Mais bem-aventurado é dar do que receber." — Atos 20:35
     </div>
   </div>
+</section>
 
-  <!-- Card Transferência -->
-  <div class="card">
-    <h2>Dados Bancários</h2>
-    <p>Para transferências via TED ou DOC, utilize os dados da conta institucional da igreja:</p>
-    
-    <div class="detail"><strong>Favorecido</strong><span>No Caminho</span></div>
-    <div class="detail"><strong>Banco</strong><span>Cora SCD</span></div>
-    <div class="detail"><strong>Agência</strong><span>0001</span></div>
-    <div class="detail"><strong>Conta</strong><span>6736893-8</span></div>
-    <div class="detail"><strong>CNPJ</strong><span>64.757.502/0001-44</span></div>
-  </div>
-</div>
-
-<footer style="background: var(--verde); color: var(--creme); padding: 3rem; text-align: center;">
-  <p>© 2026 Comunidade Cristã No Caminho — Campinas, SP</p>
+<footer>
+<p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">&copy; 2026 Comunidade Cristã No Caminho | CNPJ: 64.757.502/0001-44</p>
+  <p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">Campinas — SP | comunidadecristanocaminho.org.br</p>
 </footer>
 
 <script>
-  function copyPix() {
-    const text = document.getElementById("pixKey").innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      const feedback = document.getElementById("copyFeedback");
-      feedback.style.display = "block";
-      setTimeout(() => { feedback.style.display = "none"; }, 3000);
-    });
-  }
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
+
+function copyPix() {
+  const pixKey = document.getElementById('pixKey').innerText;
+  navigator.clipboard.writeText(pixKey).then(() => {
+    const feedback = document.getElementById('copyFeedback');
+    feedback.style.display = 'block';
+    setTimeout(() => {
+      feedback.style.display = 'none';
+    }, 3000);
+  }).catch(() => {
+    alert('Erro ao copiar. Tente novamente.');
+  });
+}
 </script>
 
 </body>
