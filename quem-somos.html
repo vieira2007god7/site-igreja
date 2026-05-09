@@ -1,182 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Conheça a identidade reformada e confissão de fé da Comunidade Cristã No Caminho">
-<title>Quem Somos | Comunidade Cristã No Caminho</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root {
-  --primary: #0F3A5C;
-  --primary-light: #1B5E8F;
-  --primary-dark: #062A43;
-  --accent: #D4A574;
-  --accent-light: #E8BFA3;
-  --white: #FFFFFF;
-  --gray-light: #F8F9FA;
-  --gray-dark: #2C3E50;
-  --text: #1A1A1A;
-  --border: #E0E0E0;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Poppins', sans-serif; background-color: var(--white); color: var(--text); line-height: 1.6; }
-
-nav { position: fixed; top: 0; width: 100%; z-index: 99; background: rgba(15, 58, 92, 0.98); backdrop-filter: blur(10px); padding: 0 2rem; height: 70px; display: flex; justify-content: space-between; align-items: center; }
-.nav-brand { text-decoration: none; color: var(--white); font-weight: 700; font-size: 1.2rem; font-family: 'Crimson Text', serif; }
-.nav-links { display: flex; list-style: none; gap: 2rem; }
-.nav-links a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; transition: color 0.3s; }
-.nav-links a:hover { color: var(--accent); }
-
-section { padding: 6rem 2rem; margin-top: 70px; }
-.container { max-width: 1000px; margin: 0 auto; }
-.hero-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; text-align: center; padding: 6rem 2rem; }
-.section-title { font-family: 'Crimson Text', serif; font-size: 3rem; font-weight: 700; margin-bottom: 1rem; color: white; }
-.divider { width: 60px; height: 4px; background: var(--accent); margin: 1.5rem auto; border-radius: 2px; }
-
-h2 { font-family: 'Crimson Text', serif; font-size: 2rem; color: var(--primary); margin: 2rem 0 1rem; }
-p { line-height: 1.8; color: var(--gray-dark); margin-bottom: 1rem; }
-
-.confession-section { background: var(--gray-light); padding: 3rem; border-radius: 10px; margin: 2rem 0; }
-.confession-item { margin-bottom: 2rem; padding: 1.5rem; background: white; border-left: 5px solid var(--accent); border-radius: 5px; }
-.confession-item strong { color: var(--primary); font-size: 1.1rem; display: block; margin-bottom: 0.5rem; }
-.confession-item p { margin-bottom: 0; }
-
-.sola-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; }
-.sola-card { background: var(--gray-light); padding: 2rem; border-radius: 8px; border-top: 5px solid var(--accent); }
-.sola-card h3 { color: var(--primary); margin-top: 0; }
-
-footer { background: var(--primary-dark); color: white; padding: 3rem 2rem; text-align: center; border-top: 3px solid var(--accent); }
-
-@media (max-width: 768px) {
-  section { padding: 3rem 1.5rem; }
-  .section-title { font-size: 2rem; }
-  .nav-links { gap: 1rem; font-size: 0.8rem; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça a identidade reformada e confissão de fé da Comunidade Cristã No Caminho">
+  <title>Quem Somos | Comunidade Cristã No Caminho</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="No Caminho">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
-<nav>
-  <a href="index.html" class="nav-brand">✝️ No Caminho</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Início</a></li>
-    <li><a href="quem-somos.html">Quem Somos</a></li>
-    <li><a href="index.html#agenda">Agenda</a></li>
-    <li><a href="index.html#contato">Cadastro</a></li>
-  </ul>
-</nav>
+  <nav class="navbar">
+    <a class="navbar-brand" href="index.html">✝️ <span>No Caminho</span></a>
+    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <ul class="navbar-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="quem-somos.html">Quem Somos</a></li>
+      <li><a href="index.html#agenda">Agenda</a></li>
+      <li><a href="index.html#contato" class="cta">Cadastre-se</a></li>
+    </ul>
+  </nav>
 
-<div class="hero-section">
-  <h1 class="section-title">Quem Somos</h1>
-  <p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">Identidade, história e fundamentos da fé</p>
-  <div class="divider"></div>
-</div>
-
-<section>
-  <div class="container">
-    <h2>Nossa História</h2>
-    <p>A Comunidade Cristã No Caminho é uma igreja evangélica de cunho reformado, fundada em Campinas-SP. Nossa caminhada é marcada pelo compromisso com a Palavra de Deus, pela comunhão genuína entre irmãos e pela ação missionária transformadora em nossa cidade e além.</p>
-    
-    <p>Somos uma comunidade pequena, mas decidida. Buscamos praticar o que pregamos: uma fé baseada nas Escrituras, em comunhão autêntica e em missão contínua.</p>
-
-    <h2>Identidade Reformada</h2>
-    <p>Nos identificamos com a tradição reformada protestante, particularmente com seus cinco princípios fundamentais — os 5 Solas — que resumem a essência do evangelho recuperado na Reforma do século XVI.</p>
-
-    <div class="sola-grid">
-      <div class="sola-card">
-        <h3>Sola Scriptura</h3>
-        <p>A Palavra de Deus é nossa única autoridade infalível em matéria de fé e prática.</p>
-      </div>
-      <div class="sola-card">
-        <h3>Solus Christus</h3>
-        <p>Jesus Cristo é o único mediador entre Deus e os homens. Nele repousa nossa salvação.</p>
-      </div>
-      <div class="sola-card">
-        <h3>Sola Gratia</h3>
-        <p>Nossa salvação é inteiramente obra da graça de Deus, não de nossos méritos.</p>
-      </div>
-      <div class="sola-card">
-        <h3>Sola Fide</h3>
-        <p>Somos justificados unicamente pela fé em Cristo, não por obras da lei.</p>
-      </div>
-      <div class="sola-card">
-        <h3>Soli Deo Gloria</h3>
-        <p>Toda glória pertence unicamente a Deus. Ele é o fim último de toda adoração.</p>
-      </div>
+  <main id="main-content">
+    <div class="page-hero">
+      <a href="index.html" class="page-back">← Voltar</a>
+      <span class="page-hero-icon">✝️</span>
+      <h1 class="page-hero-title">Quem Somos</h1>
+      <p class="page-hero-subtitle">Identidade, história e fundamentos da fé</p>
     </div>
 
-    <h2>Confissão de Fé</h2>
-    <p style="text-align: center; font-style: italic; margin-bottom: 2rem;">O que cremos e declaramos</p>
+    <div class="ministry-content">
+      <div class="ministry-inner">
 
-    <div class="confession-section">
-      <div class="confession-item">
-        <strong>1. Sobre Deus</strong>
-        <p>Cremos em um único Deus, eternamente existente em três pessoas: Pai, Filho e Espírito Santo. Ele é infinitamente perfeito, onipotente, onisciente e onipresente. Deus é absolutamente soberano sobre toda criação.</p>
-      </div>
+        <!-- História -->
+        <div class="ministry-section reveal">
+          <h2 class="ministry-section-title">Nossa História</h2>
+          <p style="color:var(--text-light);line-height:1.8;margin-bottom:1rem">
+            A Comunidade Cristã No Caminho é uma igreja evangélica de cunho reformado, fundada em Campinas-SP. Nossa caminhada é marcada pelo compromisso com a Palavra de Deus, pela comunhão genuína entre irmãos e pela ação missionária transformadora em nossa cidade e além.
+          </p>
+          <p style="color:var(--text-light);line-height:1.8">
+            Somos uma comunidade pequena, mas decidida. Buscamos praticar o que pregamos: uma fé baseada nas Escrituras, em comunhão autêntica e em missão contínua.
+          </p>
+        </div>
 
-      <div class="confession-item">
-        <strong>2. Sobre a Bíblia</strong>
-        <p>Cremos que a Bíblia Sagrada é a Palavra de Deus, inspirada e infalível em sua totalidade. É nossa autoridade suprema para todas as questões de fé e conduta cristã. Aceitamos tanto o Antigo quanto o Novo Testamento como completo revelação de Deus.</p>
-      </div>
+        <!-- Solas -->
+        <div class="ministry-section reveal">
+          <h2 class="ministry-section-title">Identidade Reformada</h2>
+          <p style="color:var(--text-light);margin-bottom:1.5rem">Nos identificamos com a tradição reformada protestante, particularmente com seus cinco princípios fundamentais — os <strong>5 Solas</strong> — que resumem a essência do evangelho recuperado na Reforma do século XVI.</p>
+          <div class="solas-grid">
+            <div class="sola-card">
+              <div class="sola-latin">Sola Scriptura</div>
+              <div class="sola-desc">A Palavra de Deus é nossa única autoridade infalível em matéria de fé e prática.</div>
+            </div>
+            <div class="sola-card">
+              <div class="sola-latin">Solus Christus</div>
+              <div class="sola-desc">Jesus Cristo é o único mediador entre Deus e os homens. Nele repousa nossa salvação.</div>
+            </div>
+            <div class="sola-card">
+              <div class="sola-latin">Sola Gratia</div>
+              <div class="sola-desc">Nossa salvação é inteiramente obra da graça de Deus, não de nossos méritos.</div>
+            </div>
+            <div class="sola-card">
+              <div class="sola-latin">Sola Fide</div>
+              <div class="sola-desc">Somos justificados unicamente pela fé em Cristo, não por obras da lei.</div>
+            </div>
+            <div class="sola-card">
+              <div class="sola-latin">Soli Deo Gloria</div>
+              <div class="sola-desc">Toda glória pertence unicamente a Deus. Ele é o fim último de toda adoração.</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="confession-item">
-        <strong>3. Sobre Jesus Cristo</strong>
-        <p>Cremos que Jesus Cristo é Deus encarnado, verdadeiro Deus e verdadeiro homem. Nasceu de uma virgem, viveu uma vida sem pecado, foi crucificado pelos nossos pecados, ressuscitou corporeamente ao terceiro dia e ascendeu aos céus, onde está assentado à destra de Deus Pai.</p>
-      </div>
+        <!-- Confissão -->
+        <div class="ministry-section reveal">
+          <h2 class="ministry-section-title">Confissão de Fé — O que cremos</h2>
+          <div class="confession-list">
+            <div class="confession-item">
+              <h3>1. Sobre Deus</h3>
+              <p>Cremos em um único Deus, eternamente existente em três pessoas: Pai, Filho e Espírito Santo. Ele é infinitamente perfeito, onipotente, onisciente e onipresente. Deus é absolutamente soberano sobre toda criação.</p>
+            </div>
+            <div class="confession-item">
+              <h3>2. Sobre a Bíblia</h3>
+              <p>Cremos que a Bíblia Sagrada é a Palavra de Deus, inspirada e infalível em sua totalidade. É nossa autoridade suprema para todas as questões de fé e conduta cristã. Aceitamos tanto o Antigo quanto o Novo Testamento como completa revelação de Deus.</p>
+            </div>
+            <div class="confession-item">
+              <h3>3. Sobre Jesus Cristo</h3>
+              <p>Cremos que Jesus Cristo é Deus encarnado, verdadeiro Deus e verdadeiro homem. Nasceu de uma virgem, viveu uma vida sem pecado, foi crucificado pelos nossos pecados, ressuscitou corporeamente ao terceiro dia e ascendeu aos céus.</p>
+            </div>
+            <div class="confession-item">
+              <h3>4. Sobre a Salvação</h3>
+              <p>Cremos que a salvação é pela graça de Deus através da fé em Jesus Cristo. Nenhuma obra humana pode nos salvar; somos justificados unicamente pela fé. Todo aquele que crê em Cristo é adotado como filho de Deus e recebe a vida eterna.</p>
+            </div>
+            <div class="confession-item">
+              <h3>5. Sobre o Espírito Santo</h3>
+              <p>Cremos que o Espírito Santo é uma pessoa divina que regenera, santifica e capacita os crentes. Ele habita no coração de todo verdadeiro crente, produzindo o fruto do Espírito e distribuindo dons para o serviço da igreja.</p>
+            </div>
+            <div class="confession-item">
+              <h3>6. Sobre a Igreja</h3>
+              <p>Cremos que a Igreja é o corpo de Cristo, composto por todos os verdadeiros crentes em Jesus Cristo de todos os tempos. Nossa comunidade local é expressão viva dessa Igreja universal, dedicada ao ensino, à comunhão, à oração e à ação missionária.</p>
+            </div>
+            <div class="confession-item">
+              <h3>7. Sobre os Sacramentos</h3>
+              <p>Praticamos o Batismo por imersão e a Ceia do Senhor como ordenanças da Igreja. O batismo é testemunho público da fé em Cristo. A Ceia é celebração comemorativa da morte de Cristo e antecipação de Seu retorno.</p>
+            </div>
+            <div class="confession-item">
+              <h3>8. Sobre o Retorno de Cristo</h3>
+              <p>Cremos no retorno pessoal e literal de Jesus Cristo ao final dos tempos. Ele virá em glória para julgar os vivos e os mortos. Haverá ressurreição dos mortos, julgamento eterno e estabelecimento do reino eterno de Deus.</p>
+            </div>
+            <div class="confession-item">
+              <h3>9. Sobre a Vida Cristã</h3>
+              <p>Cremos que o cristão deve viver uma vida santa, separada do pecado, em obediência à Palavra de Deus. Somos chamados a amar a Deus com todo o coração, alma e mente, e ao próximo como a nós mesmos.</p>
+            </div>
+            <div class="confession-item">
+              <h3>10. Sobre a Eternidade</h3>
+              <p>Cremos que há vida eterna tanto para os crentes (céu) quanto para os incrédulos (inferno). O destino eterno de cada pessoa é determinado por sua resposta ao evangelho de Cristo nesta vida terrena.</p>
+            </div>
+          </div>
+        </div>
 
-      <div class="confession-item">
-        <strong>4. Sobre a Salvação</strong>
-        <p>Cremos que a salvação é pela graça de Deus através da fé em Jesus Cristo. Nenhuma obra humana pode nos salvar; somos justificados unicamente pela fé. Todo aquele que crê em Cristo é adotado como filho de Deus e recebe a vida eterna.</p>
-      </div>
+        <!-- Valores -->
+        <div class="ministry-section reveal">
+          <h2 class="ministry-section-title">Nossos Valores</h2>
+          <div class="valores-grid">
+            <div class="valor-card">
+              <div class="icon">📖</div>
+              <h3>Fidelidade à Palavra</h3>
+              <p>Toda verdade tem sua origem e fundamento nas Escrituras Sagradas.</p>
+            </div>
+            <div class="valor-card">
+              <div class="icon">🤝</div>
+              <h3>Comunhão Genuína</h3>
+              <p>Nos relacionamos como irmãos em Cristo, cuidando uns dos outros com amor sincero.</p>
+            </div>
+            <div class="valor-card">
+              <div class="icon">🌍</div>
+              <h3>Missão Contínua</h3>
+              <p>Somos chamados a compartilhar o evangelho e servir aqueles em necessidade.</p>
+            </div>
+            <div class="valor-card">
+              <div class="icon">⭐</div>
+              <h3>Excelência no Serviço</h3>
+              <p>Fazemos tudo para a glória de Deus, com dedicação e profissionalismo.</p>
+            </div>
+          </div>
+        </div>
 
-      <div class="confession-item">
-        <strong>5. Sobre o Espírito Santo</strong>
-        <p>Cremos que o Espírito Santo é uma pessoa divina que regenera, sancifica e capacita os crentes. Ele habita no coração de todo verdadeiro crente, produzindo o fruto do Espírito e distribuindo dons para o serviço da igreja.</p>
-      </div>
-
-      <div class="confession-item">
-        <strong>6. Sobre a Igreja</strong>
-        <p>Cremos que a Igreja é o corpo de Cristo, composto por todos os verdadeiros crentes em Jesus Cristo de todos os tempos. Nossa comunidade local é expressão viva dessa Igreja universal, dedicada ao ensino, à comunhão, à oração e à ação missionária.</p>
-      </div>
-
-      <div class="confession-item">
-        <strong>7. Sobre os Sacramentos</strong>
-        <p>Praticamos o Batismo por imersão e a Ceia do Senhor como ordenanças da Igreja. O batismo é testemunho público da fé em Cristo. A Ceia é celebração comemorativa da morte de Cristo e antecipação de Seu retorno.</p>
-      </div>
-
-      <div class="confession-item">
-        <strong>8. Sobre o Retorno de Cristo</strong>
-        <p>Cremos no retorno pessoal e literal de Jesus Cristo ao final dos tempos. Ele virá em glória para julgar os vivos e os mortos. Naquele dia, haverá ressurreição dos mortos, julgamento eterno e estabelecimento do reino eterno de Deus.</p>
-      </div>
-
-      <div class="confession-item">
-        <strong>9. Sobre a Vida Cristã</strong>
-        <p>Cremos que o cristão deve viver uma vida santa, separada do pecado, em obediência à Palavra de Deus. Somos chamados a amar a Deus com todo o coração, alma e mente, e ao próximo como a nós mesmos. A evangelização e a ação social são mandatos cristãos.</p>
-      </div>
-
-      <div class="confession-item">
-        <strong>10. Sobre a Eternidade</strong>
-        <p>Cremos que há vida eterna tanto para os crentes (céu) quanto para os incrédulos (inferno). O destino eterno de cada pessoa é determinado por sua resposta ao evangelho de Cristo nesta vida terrena.</p>
       </div>
     </div>
+  </main>
 
-    <h2>Nossos Valores</h2>
-    <p><strong>Fidelidade à Palavra:</strong> Toda verdade tem sua origem e fundamento nas Escrituras Sagradas.</p>
-    <p><strong>Comunhão Genuína:</strong> Nos relacionamos como irmãos em Cristo, cuidando uns dos outros com amor sincero.</p>
-    <p><strong>Missão Contínua:</strong> Somos chamados a compartilhar o evangelho e servir aqueles em necessidade.</p>
-    <p><strong>Excelência no Serviço:</strong> Fazemos tudo para a glória de Deus, com dedicação e profissionalismo.</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">✝️ <span>No Caminho</span></div>
+        <p class="footer-tagline">Igreja Evangélica Reformada — Campinas, SP</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="index.html#agenda">Agenda</a></li>
+          <li><a href="contribuicao.html">Contribuição</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ministérios</h4>
+        <ul>
+          <li><a href="irmas.html">🙏 Irmãs</a></li>
+          <li><a href="missoes.html">🌍 Missões</a></li>
+          <li><a href="juventude.html">⚡ Juventude</a></li>
+          <li><a href="cooperacao.html">🤝 Cooperação</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p>📍 Campinas — SP<br><br>📞 <a href="https://wa.me/5519998532764" style="color:rgba(255,255,255,.55)">+55 19 99853-2764</a><br><br>🆔 CNPJ: 64.757.502/0001-44</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Comunidade Cristã No Caminho. Todos os direitos reservados.</span>
+      <span class="footer-solas">Sola Scriptura · Solus Christus · Sola Gratia · Sola Fide · Soli Deo Gloria</span>
+    </div>
+  </footer>
 
-  </div>
-</section>
-
-<footer>
- <p style="color: #FFFFFF; font-size: 1.05rem; opacity: 0.95; margin-top: 1.5rem; font-style: italic;">&copy; 2026 Comunidade Cristã No Caminho | CNPJ: 64.757.502/0001-44</p>
-</footer>
-
+  <script src="main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('SW registrado:', reg.scope))
+          .catch(err => console.warn('SW erro:', err));
+      });
+    }
+  </script>
 </body>
 </html>

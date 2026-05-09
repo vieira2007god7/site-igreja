@@ -3,15 +3,15 @@
   "short_name": "No Caminho",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#2A4035",
-  "theme_color": "#2A4035",
+  "background_color": "#0F3A5C",
+  "theme_color": "#0F3A5C",
   "description": "Aplicativo da Comunidade Cristã No Caminho em Campinas-SP",
- "icons": [
-  {
-    "src": "https://img.icons8.com/color/512/chapel.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "any maskable"
-  }
- ]
+  "icons": [
+    {
+      "src": "https://img.icons8.com/color/512/chapel.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
