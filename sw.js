@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nocaminho-v3';
+const CACHE_NAME = 'nocaminho-v4'; // Incrementado para forçar a invalidação do cache v3 defeituoso
 const assets = [
   '/',
   '/index.html',
@@ -25,7 +25,9 @@ self.addEventListener('activate', (e) => {
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) return caches.delete(cache);
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
         })
       );
     })
@@ -34,7 +36,34 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((res) => res || fetch(e.request))
-  );
+  const url = new URL(e.request.url);
+
+  // Estratégia NETWORK-FIRST para páginas HTML (Garante que o Googlebot veja as tags canônicas em tempo real)
+  if (e.request.mode === 'navigate' || e.request.headers.get('accept').includes('text/html')) {
+    e.respondWith(
+      fetch(e.request)
+        .then((response) => {
+          if (response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone));
+          }
+          return response;
+        })
+        .catch(() => {
+          // Fallback para o cache se estiver offline, tratando rotas limpas do GitHub Pages
+          return caches.match(e.request).then((cachedResponse) => {
+            if (cachedResponse) return cachedResponse;
+            
+            // Se buscou '/quem-somos', tenta encontrar '/quem-somos.html' no cache
+            const cleanPath = url.pathname.endsWith('/') ? `${url.pathname}index.html` : `${url.pathname}.html`;
+            return caches.match(cleanPath);
+          });
+        })
+    );
+  } else {
+    // Estratégia CACHE-FIRST para ativos estáticos (CSS, JS, Imagens, Manifest)
+    e.respondWith(
+      caches.match(e.request).then((res) => res || fetch(e.request))
+    );
+  }
 });
