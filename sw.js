@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nocaminho-v4'; // Incrementado para forçar a invalidação do cache v3 defeituoso
+const CACHE_NAME = 'nocaminho-v5'; // Incrementado para forçar a invalidação do cache v3 defeituoso
 const assets = [
   '/',
   '/index.html',
