@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nocaminho-v5'; // Incrementado para forçar a invalidação do cache v5 defeituoso
+const CACHE_NAME = 'nocaminho-v6'; // Incrementado para v6 para forçar a atualização de cache do robô do Google e usuários
 const assets = [
   '/',
   '/index.html',
