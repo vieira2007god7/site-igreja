@@ -1,3 +1,6 @@
+/* ===== GOOGLE FONTS (Obrigatório no topo absoluto do arquivo) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap');
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,9 +34,6 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
-/* ===== GOOGLE FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap');
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 6px; }
@@ -473,6 +473,14 @@ body {
 }
 .footer-solas {
   font-style: italic; letter-spacing: .03em;
+}
+
+/* Regra utilitária para os metadados de tradução exigidos pelo Google */
+.footer-international {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.5rem;
 }
 
 /* ===== PAGE HERO (sub-pages) ===== */
