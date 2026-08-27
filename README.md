@@ -1,34 +1,42 @@
 # 📘 MANUAL DO SITE
 ## Comunidade Cristã No Caminho
 
----
+## Visão geral
+Site estático, responsivo e acessível da Comunidade Cristã No Caminho, com páginas institucionais,
+agenda, ministérios, localização, contribuição e contato.
 
-## 📋 ÍNDICE
-1. [Visão Geral](#visão-geral)
-2. [Estrutura do Site](#estrutura-do-site)
-3. [Páginas e Funções](#páginas-e-funções)
-4. [Como Usar](#como-usar)
-5. [Padrões de Design](#padrões-de-design)
-6. [Acessibilidade](#acessibilidade)
-7. [Responsividade](#responsividade)
-8. [Formulários](#formulários)
-9. [Contato e Links](#contato-e-links)
-10. [Manutenção Futura](#manutenção-futura)
+## Estrutura atual
+- `index.html` — página inicial, agenda, localização e cadastro.
+- `quem-somos.html` — história, missão, identidade reformada e confissão de fé.
+- `contribuicao.html` — informações de contribuição e PIX.
+- `irmas.html` — Ministério Irmãs.
+- `missoes.html` — Ministério Missões.
+- `juventude.html` — Ministério Juventude.
+- `cooperacao.html` — arquivo preservado para evitar quebra de links/URLs antigas; seu conteúdo agora é o **Culto da Família**.
+- `style.css` — estilos centralizados.
+- `main.js` — menu, animações, PIX e cadastro via WhatsApp.
+- `sw.js` — Service Worker/PWA.
+- `manifest.json` — configuração do aplicativo.
+- `CNAME` — domínio personalizado.
 
----
+## Programação
+- Terça-feira: Estudo Bíblico — 19:30–21:15.
+- Quinta-feira: Culto Público — 19:30–21:15.
+- 1º domingo: Culto das Irmãs — 19:15–21:00.
+- 2º domingo: Oração — 07:30–08:30; Culto de Ceia — 08:30–10:00.
+- 3º domingo: Culto de Missões — 19:15–21:00.
+- 4º domingo: Culto da Família — 19:15–21:00.
 
-## 🎯 VISÃO GERAL
+A programação antiga da Juventude em 4º sábado foi removida da divulgação pública porque a solicitação
+de atualização não definiu um novo horário para esse ministério.
 
-O site da Comunidade Cristã No Caminho é uma plataforma moderna, responsiva e acessível que apresenta:
-- **Informações** sobre a comunidade, identidade reformada e confissão de fé.
-- **Programação** de cultos, agenda semanal e reuniões de ministérios.
-- **Ministérios** dedicados com páginas próprias (Irmãs, Missões, Juventude, Cooperação).
-- **Localização** com Google Maps interativo.
-- **Formulário de cadastro** simples para contato integrado ao WhatsApp.
-- **Transparência Institucional:** Exibição obrigatória de dados jurídicos (CNPJ e Endereço) no rodapé para conformidade com o *Google for Nonprofits*.
+## Contato e transparência
+- CNPJ: 64.757.502/0001-44.
+- WhatsApp: +55 19 99853-2764.
+- Instagram: @comunidadecristanocaminho.
+- Endereço: Rua Rafael Paulo Teixeira de Oliveira, 224 — Campinas-SP.
+- CEP: 13.091-329.
 
----
-
-## 📁 ESTRUTURA DO SITE
-
-O ecossistema do site é estático e centralizado, eliminando redundâncias e estilos dispersos:
+## Manutenção
+O CSS é centralizado em `style.css`. O Service Worker utiliza `nocaminho-v7` e prioriza a rede,
+mantendo cache como fallback para funcionamento offline.

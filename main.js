@@ -1,7 +1,6 @@
 // ===== NAVBAR SCROLL =====
 const navbar = document.querySelector('.navbar');
 if (navbar) {
-  // O parâmetro { passive: true } melhora a performance de rolagem da página
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
@@ -10,12 +9,12 @@ if (navbar) {
 // ===== HAMBURGER MENU =====
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.navbar-links');
+
 if (navToggle && navLinks) {
   const toggleMenu = () => {
     const isOpen = navToggle.classList.toggle('open');
     navLinks.classList.toggle('open');
-    // Atualiza o estado para leitores de tela (Acessibilidade)
-    navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
   };
 
   navToggle.addEventListener('click', toggleMenu);
@@ -23,7 +22,7 @@ if (navToggle && navLinks) {
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       navToggle.classList.remove('open');
-      navLinks.classList.remove('remove');
+      navLinks.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
@@ -31,73 +30,90 @@ if (navToggle && navLinks) {
 
 // ===== SCROLL REVEAL =====
 const reveals = document.querySelectorAll('.reveal');
-if (reveals.length) {
+if (reveals.length && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { 
-        e.target.classList.add('visible'); 
-        observer.unobserve(e.target); 
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
+
   reveals.forEach(el => observer.observe(el));
+} else {
+  reveals.forEach(el => el.classList.add('visible'));
 }
 
 // ===== PIX COPY =====
 const copyBtn = document.getElementById('copy-pix');
 if (copyBtn) {
-  copyBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText('64.757.502/0001-44')
-      .then(() => {
-        const orig = copyBtn.textContent;
-        copyBtn.textContent = '✅ Copiado!';
-        copyBtn.style.background = '#25D366';
-        setTimeout(() => { 
-          copyBtn.textContent = orig; 
-          copyBtn.style.background = ''; 
-        }, 2000);
-      })
-      .catch(err => {
-        console.error('Erro ao copiar texto: ', err);
-      });
+  copyBtn.addEventListener('click', async () => {
+    const pixKey = document.getElementById('pix-key')?.textContent.trim();
+    if (!pixKey) return;
+
+    try {
+      await navigator.clipboard.writeText(pixKey);
+      const orig = copyBtn.textContent;
+      copyBtn.textContent = '✅ Copiado!';
+      copyBtn.classList.add('copied');
+
+      setTimeout(() => {
+        copyBtn.textContent = orig;
+        copyBtn.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      console.error('Erro ao copiar PIX:', err);
+      alert('Não foi possível copiar automaticamente. Selecione e copie a chave PIX manualmente.');
+    }
   });
 }
 
-// ===== CONTACT FORM (ENVIO REAL VIA AJAX) =====
+// ===== CONTACT FORM → WHATSAPP =====
 const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    const success = document.getElementById('form-success');
-    const actionUrl = form.getAttribute('action');
-    
-    // Se o formulário tiver uma action configurada (ex: Formspree), envia via AJAX
-    if (actionUrl) {
-      const data = new FormData(form);
-      
-      fetch(actionUrl, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(response => {
-        if (response.ok) {
-          if (success) success.style.display = 'block';
-          form.reset();
-          setTimeout(() => { if (success) success.style.display = 'none'; }, 5000);
-        } else {
-          alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.');
-        }
-      })
-      .catch(() => {
-        alert('Erro de conexão. Verifique sua internet e tente novamente.');
-      });
-    } else {
-      // Fallback visual caso não haja integração de backend configurada no HTML
-      if (success) success.style.display = 'block';
-      form.reset();
-      setTimeout(() => { if (success) success.style.display = 'none'; }, 5000);
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
     }
+
+    const data = new FormData(form);
+    const nome = String(data.get('nome') || '').trim();
+    const whatsapp = String(data.get('whatsapp') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const ministerio = String(data.get('ministerio') || '').trim();
+    const mensagem = String(data.get('mensagem') || '').trim();
+
+    const ministerios = {
+      irmas: 'Ministério Irmãs',
+      missoes: 'Ministério Missões',
+      juventude: 'Ministério Juventude',
+      'culto-familia': 'Culto da Família',
+      geral: 'Informações Gerais'
+    };
+
+    const texto = [
+      'Olá! Gostaria de me cadastrar na Comunidade Cristã No Caminho.',
+      '',
+      `Nome: ${nome}`,
+      `WhatsApp: ${whatsapp}`,
+      email ? `E-mail: ${email}` : '',
+      ministerio ? `Interesse: ${ministerios[ministerio] || ministerio}` : '',
+      mensagem ? `Mensagem: ${mensagem}` : ''
+    ].filter(Boolean).join('\n');
+
+    const url = `https://wa.me/5519998532764?text=${encodeURIComponent(texto)}`;
+    const success = document.getElementById('form-success');
+
+    if (success) {
+      success.style.display = 'block';
+      setTimeout(() => { success.style.display = 'none'; }, 5000);
+    }
+
+    window.open(url, '_blank', 'noopener,noreferrer');
+    form.reset();
   });
 }

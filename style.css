@@ -771,3 +771,60 @@ body {
 .mt-2 { margin-top: 2rem; }
 .mb-2 { margin-bottom: 2rem; }
 .gold { color: var(--gold); }
+
+
+/* ===== AJUSTES DA ATUALIZAÇÃO 2026 ===== */
+.optional-label {
+  color: rgba(255,255,255,.4);
+  font-weight: 400;
+}
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+.body-copy {
+  color: var(--text-light);
+  line-height: 1.8;
+}
+.body-copy-spaced {
+  margin-bottom: 1.5rem;
+}
+.text-link {
+  color: var(--gold);
+  font-weight: 700;
+}
+.footer-mission {
+  margin-bottom: 1.25rem;
+  font-size: .85rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.5;
+  max-width: 320px;
+}
+.footer-international {
+  font-size: .75rem;
+  color: rgba(255,255,255,.5);
+}
+.institutions-icon {
+  font-size: 2rem;
+}
+.family-lead {
+  color: var(--text-light);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  max-width: 850px;
+}
+.family-highlight {
+  padding: 1.5rem;
+  background: rgba(201,149,42,.08);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+}
+.family-highlight h3 {
+  color: var(--navy);
+  margin-bottom: .5rem;
+  font-family: var(--font-display);
+}
+.family-highlight p {
+  color: var(--text-light);
+  line-height: 1.8;
+}

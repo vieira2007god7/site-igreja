@@ -1,0 +1,108 @@
+RELATÓRIO DE REVISÃO E ATUALIZAÇÃO
+Comunidade Cristã No Caminho
+Data: 27/08/2026
+Versão preparada: 2.0
+
+1. BASE DA REVISÃO
+A revisão foi feita usando a conversa histórica fornecida no PDF e os arquivos atuais enviados no chat.
+
+2. SOLICITAÇÕES IDENTIFICADAS
+- Transformar a antiga página de Cooperação Externa em Culto da Família.
+- Manter identidade visual, contatos, endereço e estrutura geral.
+- Criar conteúdo coerente com o Culto da Família.
+- 4º domingo: Culto da Família, 19:15–21:00.
+- 1º domingo: Culto das Irmãs, 19:15–21:00.
+- 2º domingo: oração 07:30–08:30 e Culto de Ceia 08:30–10:00.
+- 3º domingo: Culto de Missões, 19:15–21:00.
+- Revisar agenda, menus, rodapés e links em todo o site.
+
+3. ALTERAÇÕES REALIZADAS
+
+3.1 cooperacao.html
+A página foi integralmente convertida para Culto da Família, com novo hero, conteúdo, cards,
+seção para toda a família, convite e programação. O endereço, WhatsApp, identidade visual e
+rodapé institucional foram preservados. O nome do arquivo foi mantido para evitar quebra de links.
+
+3.2 index.html
+- Irmãs: 1º domingo, 19:15–21:00.
+- Missões: 3º domingo, 19:15–21:00.
+- Culto da Família: 4º domingo, 19:15–21:00.
+- Juventude: programação em atualização.
+- Agenda refeita com terça, quinta e os quatro domingos.
+- 2º domingo mostra oração 07:30–08:30 e Ceia 08:30–10:00.
+- Horários da localização atualizados.
+- "Culto da Família" incluído no formulário.
+
+3.3 irmas.html
+1º sábado → 1º domingo, 19:15–21:00.
+
+3.4 missoes.html
+3º sábado → 3º domingo, 19:15–21:00.
+
+3.5 juventude.html
+O antigo 4º sábado foi removido da divulgação. A conversa não definiu novo horário para a Juventude,
+então não foi inventado um horário; a página informa "Programação em atualização".
+
+3.6 demais páginas
+Rodapés e referências antigas a Cooperação foram atualizados para Culto da Família.
+Estilos inline repetitivos foram parcialmente centralizados.
+
+3.7 main.js
+- Corrigido o erro do menu mobile.
+- Formulário validado e integrado ao WhatsApp.
+- Cópia do PIX obtém a chave do próprio HTML.
+- Melhorado fallback do IntersectionObserver.
+
+3.8 sw.js
+- Cache v7.
+- Network-First para HTML.
+- Rede priorizada também para CSS/JS/manifest, com cache como fallback.
+- Header Accept tratado com segurança.
+- Cache antigo removido na ativação.
+
+4. PONTOS ENCONTRADOS NOS ARQUIVOS ORIGINAIS
+- Havia referências visíveis a Cooperação mesmo após a mudança solicitada.
+- Havia horários antigos de sábado.
+- A agenda principal ainda possuía "Sábado Especial".
+- 4º domingo aparecia como 19:00 em parte do conteúdo.
+- O menu mobile tinha um typo: removia "remove" em vez de "open".
+- O formulário não tinha action e o JS original mostrava sucesso sem envio real.
+- O Service Worker podia manter CSS/JS antigos por usar cache-first nesses ativos.
+
+5. DECISÃO SOBRE A JUVENTUDE
+A conversa especifica novos horários para Irmãs, Ceia, Missões e Culto da Família, mas não especifica
+novo horário para Juventude. Por segurança, o horário antigo foi retirado em vez de criar uma informação
+não fornecida.
+
+6. VALIDAÇÕES
+- Links locais verificados: nenhum alvo ausente.
+- Referências antigas de Cooperação removidas dos HTMLs atualizados.
+- 1º, 2º, 3º e 4º domingos presentes.
+- Oração 07:30–08:30 presente.
+- Ceia 08:30–10:00 presente.
+- Bug do menu corrigido.
+- Service Worker v7 presente.
+- HTMLs mantêm footer e estrutura base.
+
+7. ARQUIVOS ENTREGUES
+CNAME
+index.html
+quem-somos.html
+contribuicao.html
+irmas.html
+missoes.html
+juventude.html
+cooperacao.html (agora Culto da Família)
+style.css
+main.js
+sw.js
+manifest.json
+README.md
+CHANGELOG.md
+relatorio-atualizacao.txt
+
+8. PUBLICAÇÃO
+Substitua os arquivos no repositório GitHub, faça commit/push e depois teste em janela anônima:
+página inicial, links, menu mobile, formulário/WhatsApp, PIX, agenda e página do Culto da Família.
+
+FIM DO RELATÓRIO

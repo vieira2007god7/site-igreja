@@ -4,8 +4,9 @@
   <link rel="canonical" href="https://comunidadecristanocaminho.org.br/cooperacao.html" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ministério Cooperação — Parcerias estratégicas para fortalecer o corpo de Cristo">
-  <title>Ministério Cooperação | Comunidade Cristã No Caminho</title>
+  <meta name="description" content="Culto da Família — Um encontro de Palavra, oração, comunhão e edificação para toda a família.">
+  <meta name="theme-color" content="#0F3A5C">
+  <title>Culto da Família | Comunidade Cristã No Caminho</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
@@ -16,11 +17,15 @@
 <body>
   <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Navegação principal">
     <a class="navbar-brand" href="index.html">✝️ <span>No Caminho</span></a>
-    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
-    <ul class="navbar-links">
-      <li><a href="index.html#ministerios">← Voltar</a></li>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-links" id="primary-navigation">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="quem-somos.html">Quem Somos</a></li>
+      <li><a href="index.html#agenda">Agenda</a></li>
       <li><a href="index.html#contato" class="cta">Cadastre-se</a></li>
     </ul>
   </nav>
@@ -28,121 +33,72 @@
   <main id="main-content">
     <div class="page-hero">
       <a href="index.html#ministerios" class="page-back">← Ministérios</a>
-      <span class="page-hero-icon">🤝</span>
-      <h1 class="page-hero-title">Ministério Cooperação</h1>
-      <p class="page-hero-subtitle">Parcerias estratégicas para fortalecer o corpo de Cristo</p>
+      <span class="page-hero-icon">👨‍👩‍👧‍👦</span>
+      <h1 class="page-hero-title">Culto da Família</h1>
+      <p class="page-hero-subtitle">Um encontro para toda a casa, firmado na Palavra de Deus</p>
     </div>
 
     <div class="ministry-content">
       <div class="ministry-inner">
 
-        <!-- Missão -->
         <div class="ministry-section reveal">
-          <h2 class="ministry-section-title">Nossa Missão</h2>
-          <p style="color:var(--text-light);line-height:1.8">
-            O Ministério de Cooperação Externa foca em parcerias com outras igrejas, ministérios e organizações cristãs. Acreditamos que a unidade do corpo de Cristo é fundamental para impacto espiritual e social em Campinas e região.
+          <h2 class="ministry-section-title">Uma noite para toda a família</h2>
+          <p class="family-lead">
+            O Culto da Família é um momento de comunhão, oração, louvor e ensino da Palavra de Deus,
+            reunindo diferentes gerações em torno de Cristo. Queremos fortalecer os vínculos familiares
+            e encorajar cada pessoa a viver a fé de forma prática dentro de casa e na comunidade.
           </p>
         </div>
 
-        <!-- Prioridades -->
         <div class="ministry-section reveal">
-          <h2 class="ministry-section-title">Nossas Prioridades</h2>
+          <h2 class="ministry-section-title">O que vivemos juntos</h2>
           <div class="ministry-cards">
             <div class="ministry-feature-card">
-              <div class="icon">🔗</div>
-              <h3>Parcerias Estratégicas</h3>
-              <p>Fortalecimento de relacionamentos com outras comunidades cristãs locais.</p>
+              <div class="icon">📖</div>
+              <h3>Palavra de Deus</h3>
+              <p>Ensino bíblico fiel e acessível para edificação de toda a comunidade.</p>
             </div>
             <div class="ministry-feature-card">
-              <div class="icon">📢</div>
-              <h3>Projetos Conjuntos</h3>
-              <p>Iniciativas colaborativas de evangelismo e ação social em Campinas.</p>
+              <div class="icon">🙏</div>
+              <h3>Oração</h3>
+              <p>Tempo de oração e dependência de Deus pelas famílias e pela comunidade.</p>
             </div>
             <div class="ministry-feature-card">
-              <div class="icon">🌐</div>
-              <h3>Impacto Comunitário</h3>
-              <p>Trabalho integrado para transformação social do bairro e da cidade.</p>
+              <div class="icon">🤝</div>
+              <h3>Comunhão</h3>
+              <p>Um ambiente de acolhimento, cuidado mútuo e fortalecimento dos relacionamentos.</p>
             </div>
             <div class="ministry-feature-card">
-              <div class="icon">✨</div>
-              <h3>Unidade Cristã</h3>
-              <p>Testemunho da unidade do corpo de Cristo além das divisões denominacionais.</p>
+              <div class="icon">❤️</div>
+              <h3>Família em Ação</h3>
+              <p>Encorajamento para servir a Deus e ao próximo com amor, responsabilidade e fé.</p>
             </div>
           </div>
         </div>
 
-        <!-- ===== NOVA SEÇÃO: INSTITUIÇÕES APOIADAS ===== -->
         <div class="ministry-section reveal">
-          <div class="institutions-section">
-            <div class="institutions-header">
-              <span style="font-size:2rem">🌍</span>
-              <h2>Instituições que Apoiamos</h2>
-            </div>
-            <p class="institutions-subtitle">
-              Acreditamos que a missão de Cristo vai além das paredes da nossa comunidade. Por isso, apoiamos e indicamos instituições missionárias e sociais comprometidas com o serviço ao próximo e o avanço do Evangelho no Brasil e no mundo.
+          <h2 class="ministry-section-title">Para quem é?</h2>
+          <div class="family-highlight">
+            <h3>Todos são bem-vindos</h3>
+            <p>
+              Crianças, adolescentes, jovens, adultos e idosos fazem parte da vida da comunidade.
+              O Culto da Família busca proporcionar um espaço em que cada geração possa adorar a Deus,
+              aprender sua Palavra e caminhar em comunhão com os demais irmãos.
             </p>
-
-            <div class="institutions-grid">
-
-              <!-- Portas Abertas -->
-              <a href="https://portasabertas.org.br/" class="institution-card" target="_blank" rel="noopener" aria-label="Portas Abertas Brasil — visitar site">
-                <span class="institution-tag tag-missoes">Missões</span>
-                <div class="institution-name">🚪 Portas Abertas Brasil</div>
-                <div class="institution-desc">
-                  Organização missionária dedicada a apoiar cristãos perseguidos ao redor do mundo. Trabalha com distribuição de Bíblias, assistência humanitária e fortalecimento da Igreja em países de alta perseguição.
-                </div>
-                <div class="institution-url">portasabertas.org.br</div>
-              </a>
-
-              <!-- AMAI Missões -->
-              <a href="https://amaimissoes.com.br/" class="institution-card" target="_blank" rel="noopener" aria-label="AMAI Missões — visitar site">
-                <span class="institution-tag tag-missoes">Missões</span>
-                <div class="institution-name">✈️ AMAI Missões</div>
-                <div class="institution-desc">
-                  Agência missionária evangélica focada em mobilização, envio e sustento de missionários transculturais. Atua na formação de novos missionários e no apoio a projetos evangelísticos em campo.
-                </div>
-                <div class="institution-url">amaimissoes.com.br</div>
-              </a>
-
-              <!-- MSF -->
-              <a href="https://doe.msf.org.br/" class="institution-card" target="_blank" rel="noopener" aria-label="Médicos Sem Fronteiras — visitar site">
-                <span class="institution-tag tag-social">Social</span>
-                <div class="institution-name">🏥 Médicos Sem Fronteiras</div>
-                <div class="institution-desc">
-                  Organização internacional de assistência médica humanitária que atua em zonas de conflito, epidemias e desastres. Referência mundial em ação social e cuidado com os mais vulneráveis.
-                </div>
-                <div class="institution-url">doe.msf.org.br</div>
-              </a>
-		<!-- Frontiers -->
-              <a href="https://www.frontiers.org.br/" class="institution-card" target="_blank" rel="noopener" aria-label="Frontiers — visitar site">
-                <span class="institution-tag tag-missoes">Missões</span>
-                <div class="institution-name">🚀 Frontiers</div>
-                <div class="institution-desc">
-                  Organização focada no desenvolvimento de lideranças e projetos de impacto global. Atua na capacitação e mobilização para soluções de desafios sociais e humanitários contemporâneos.
-                </div>
-                <div class="institution-url">frontiers.org.br</div>
-              </a>
-
-            </div>
-
-            <div style="margin-top:1.75rem;padding:1.25rem;background:rgba(201,149,42,.08);border-radius:var(--radius-sm);border-left:4px solid var(--gold)">
-              <p style="font-size:.875rem;color:var(--text-light);line-height:1.7">
-                <strong style="color:var(--navy)">Como apoiar?</strong> Você pode contribuir diretamente com cada instituição através dos links acima. Se desejar direcionar parte das suas ofertas para essas causas através da nossa comunidade, entre em contato pelo WhatsApp.
-              </p>
-            </div>
           </div>
         </div>
 
-        <!-- Reuniões -->
         <div class="ministry-section reveal">
-          <h2 class="ministry-section-title">Reuniões</h2>
+          <h2 class="ministry-section-title">Reunião</h2>
           <div class="meeting-banner">
             <div class="meeting-banner-info">
-              <h3>4º Domingo de cada mês — 19:00</h3>
-              <p>📍 Saída às 18:50: Rua Rafael Paulo Teixeira de Oliveira, 224 — Campinas-SP</p>
+              <h3>4º Domingo de cada mês — 19:15 às 21:00</h3>
+              <p>📍 Rua Rafael Paulo Teixeira de Oliveira, 224 — Campinas-SP<br>
+              Venha com sua família. Será uma alegria receber você!</p>
             </div>
-            <a href="https://wa.me/5519998532764?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Ministério%20Cooperação" class="btn-whatsapp" target="_blank" rel="noopener">
-              💬 Fale no WhatsApp
+            <a href="https://wa.me/5519998532764?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Culto%20da%20Família"
+               class="btn-whatsapp" target="_blank" rel="noopener">
+              💬 Fale Conosco
             </a>
           </div>
         </div>
@@ -172,20 +128,22 @@
           <li><a href="irmas.html">🙏 Irmãs</a></li>
           <li><a href="missoes.html">🌍 Missões</a></li>
           <li><a href="juventude.html">⚡ Juventude</a></li>
-          <li><a href="cooperacao.html">🤝 Cooperação</a></li>
+          <li><a href="cooperacao.html">👨‍👩‍👧‍👦 Culto da Família</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Institucional &amp; Contato</h4>
-        <p style="margin-bottom: 1.25rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.5; max-width: 320px;">
-          <strong>Nossa Missão / Our Mission:</strong> Atuar como organização religiosa reformada em Campinas-SP, promovendo cultos públicos, o ensino das Escrituras Sagradas, a comunhão comunitária e programas de assistência social e espiritual ao próximo. <br>
-        <span style="font-size:0.75rem; color:rgba(255,255,255,0.5);">(International Registration Name: CHRISTIAN COMMUNITY ON THE WAY)</span>
+        <p class="footer-mission">
+          <strong>Nossa Missão / Our Mission:</strong> Atuar como organização religiosa reformada em Campinas-SP,
+          promovendo cultos públicos, o ensino das Escrituras Sagradas, a comunhão comunitária e programas de
+          assistência social e espiritual ao próximo.<br>
+          <span class="footer-international">(International Registration Name: CHRISTIAN COMMUNITY ON THE WAY)</span>
         </p>
         <p>
           📍 <strong>Endereço:</strong> Rua Rafael Paulo Teixeira de Oliveira, 224<br>
           Loteamento Vila Lafayette Alvaro<br>
           Campinas — SP · CEP 13.091-329<br><br>
-          📞 <strong>Contato:</strong> <a href="https://wa.me/5519998532764" style="color:rgba(255,255,255,.55)">+55 19 99853-2764</a><br><br>
+          📞 <strong>Contato:</strong> <a href="https://wa.me/5519998532764">+55 19 99853-2764</a><br><br>
           🆔 <strong>CNPJ:</strong> 64.757.502/0001-44
         </p>
       </div>

@@ -1,4 +1,5 @@
-const CACHE_NAME = 'nocaminho-v6'; // Incrementado para v6 para forçar a atualização de cache do robô do Google e usuários
+const CACHE_NAME = 'nocaminho-v7';
+
 const assets = [
   '/',
   '/index.html',
@@ -13,57 +14,68 @@ const assets = [
   '/manifest.json'
 ];
 
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(assets))
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(assets))
   );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (e) => {
-  e.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
-        })
-      );
-    })
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames =>
+      Promise.all(
+        cacheNames
+          .filter(cacheName => cacheName !== CACHE_NAME)
+          .map(cacheName => caches.delete(cacheName))
+      )
+    )
   );
   self.clients.claim();
 });
 
-self.addEventListener('fetch', (e) => {
-  const url = new URL(e.request.url);
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
 
-  // Estratégia NETWORK-FIRST para páginas HTML (Garante que o Googlebot veja as tags canônicas em tempo real)
-  if (e.request.mode === 'navigate' || e.request.headers.get('accept').includes('text/html')) {
-    e.respondWith(
-      fetch(e.request)
-        .then((response) => {
-          if (response.status === 200) {
+  const request = event.request;
+  const url = new URL(request.url);
+  const accept = request.headers.get('accept') || '';
+  const isHtml = request.mode === 'navigate' || accept.includes('text/html');
+
+  if (isHtml) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
             const clone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, clone));
+            caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
           }
           return response;
         })
-        .catch(() => {
-          // Fallback para o cache se estiver offline, tratando rotas limpas do GitHub Pages
-          return caches.match(e.request).then((cachedResponse) => {
-            if (cachedResponse) return cachedResponse;
-            
-            // Se buscou '/quem-somos', tenta encontrar '/quem-somos.html' no cache
-            const cleanPath = url.pathname.endsWith('/') ? `${url.pathname}index.html` : `${url.pathname}.html`;
+        .catch(() =>
+          caches.match(request).then(cached => {
+            if (cached) return cached;
+
+            const cleanPath = url.pathname.endsWith('/')
+              ? `${url.pathname}index.html`
+              : `${url.pathname}.html`;
+
             return caches.match(cleanPath);
-          });
-        })
+          })
+        )
     );
-  } else {
-    // Estratégia CACHE-FIRST para ativos estáticos (CSS, JS, Imagens, Manifest)
-    e.respondWith(
-      caches.match(e.request).then((res) => res || fetch(e.request))
-    );
+    return;
   }
+
+  event.respondWith(
+    fetch(request)
+      .then(response => {
+        if (response.ok) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+        }
+        return response;
+      })
+      .catch(() => caches.match(request))
+  );
 });

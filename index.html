@@ -20,10 +20,10 @@
   <!-- NAVBAR -->
   <nav class="navbar" aria-label="Navegação principal">
     <a class="navbar-brand" href="index.html">✝️ <span>No Caminho</span></a>
-    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
       <span></span><span></span><span></span>
     </button>
-    <ul class="navbar-links">
+    <ul class="navbar-links" id="primary-navigation">
       <li><a href="#inicio">Início</a></li>
       <li><a href="quem-somos.html">Quem Somos</a></li>
       <li><a href="#agenda">Agenda</a></li>
@@ -64,28 +64,28 @@
             <span class="ministerio-emoji">🙏</span>
             <div class="ministerio-title">Ministério Irmãs</div>
             <div class="ministerio-desc">Comunhão entre mulheres cristãs. Estudos bíblicos, oração e apoio mútuo.</div>
-            <div class="ministerio-schedule">📅 1º Sábado às 19:30</div>
+            <div class="ministerio-schedule">📅 1º Domingo · 19:15–21:00</div>
             <span class="ministerio-arrow">→</span>
           </a>
           <a href="missoes.html" class="ministerio-card reveal reveal-delay-2">
             <span class="ministerio-emoji">🌍</span>
             <div class="ministerio-title">Ministério Missões</div>
             <div class="ministerio-desc">Evangelização e ação missionária. Apoio a projetos locais e internacionais.</div>
-            <div class="ministerio-schedule">📅 3º Sábado às 19:30</div>
+            <div class="ministerio-schedule">📅 3º Domingo · 19:15–21:00</div>
             <span class="ministerio-arrow">→</span>
           </a>
           <a href="juventude.html" class="ministerio-card reveal reveal-delay-3">
             <span class="ministerio-emoji">⚡</span>
             <div class="ministerio-title">Ministério Juventude</div>
             <div class="ministerio-desc">Jovens com propósito. Louvor, discipulado e ação social transformadora.</div>
-            <div class="ministerio-schedule">📅 4º Sábado às 19:30</div>
+            <div class="ministerio-schedule">📅 Programação em atualização</div>
             <span class="ministerio-arrow">→</span>
           </a>
           <a href="cooperacao.html" class="ministerio-card reveal reveal-delay-4">
-            <span class="ministerio-emoji">🤝</span>
-            <div class="ministerio-title">Cooperação Externa</div>
-            <div class="ministerio-desc">Parcerias estratégicas com outras igrejas, ministérios e instituições.</div>
-            <div class="ministerio-schedule">📅 4º Domingo às 19:00</div>
+            <span class="ministerio-emoji">👨‍👩‍👧‍👦</span>
+            <div class="ministerio-title">Culto da Família</div>
+            <div class="ministerio-desc">Um encontro para toda a família, com Palavra, comunhão, oração e edificação.</div>
+            <div class="ministerio-schedule">📅 4º Domingo · 19:15–21:00</div>
             <span class="ministerio-arrow">→</span>
           </a>
         </div>
@@ -96,7 +96,7 @@
     <section class="section agenda-section" id="agenda" aria-labelledby="agenda-title">
       <div class="section-inner">
         <div class="section-header reveal">
-          <div class="section-tag">Programação Semanal</div>
+          <div class="section-tag">Programação</div>
           <h2 class="section-title" id="agenda-title">Confira nossos encontros e cultos</h2>
           <div class="divider"></div>
         </div>
@@ -105,29 +105,43 @@
             <div class="agenda-card-day">Terça-Feira</div>
             <span class="agenda-card-icon">📖</span>
             <div class="agenda-card-title">Estudo Bíblico</div>
-            <div class="agenda-card-time">19:30</div>
+            <div class="agenda-card-time">19:30–21:15</div>
             <div class="agenda-card-desc">Aprofundamento nas Escrituras</div>
           </div>
           <div class="agenda-card reveal reveal-delay-2">
             <div class="agenda-card-day">Quinta-Feira</div>
             <span class="agenda-card-icon">🙏</span>
             <div class="agenda-card-title">Culto Público</div>
-            <div class="agenda-card-time">19:30</div>
+            <div class="agenda-card-time">19:30–21:15</div>
             <div class="agenda-card-desc">Louvor, Palavra e Comunhão</div>
           </div>
           <div class="agenda-card reveal reveal-delay-3">
-            <div class="agenda-card-day">Sábado Especial</div>
-            <span class="agenda-card-icon">🎉</span>
-            <div class="agenda-card-title">Programação Mensal</div>
-            <div class="agenda-card-time">19:30</div>
-            <div class="agenda-card-desc">Irmãs · Cooperação · Missões · Juventude</div>
+            <div class="agenda-card-day">1º Domingo</div>
+            <span class="agenda-card-icon">🙏</span>
+            <div class="agenda-card-title">Culto das Irmãs</div>
+            <div class="agenda-card-time">19:15–21:00</div>
+            <div class="agenda-card-desc">Comunhão e edificação entre mulheres cristãs</div>
           </div>
           <div class="agenda-card reveal reveal-delay-4">
             <div class="agenda-card-day">2º Domingo</div>
             <span class="agenda-card-icon">🍞</span>
-            <div class="agenda-card-title">Ceia do Senhor</div>
-            <div class="agenda-card-time">07:30</div>
-            <div class="agenda-card-desc">Celebração comunitária</div>
+            <div class="agenda-card-title">Oração + Culto de Ceia</div>
+            <div class="agenda-card-time">07:30–10:00</div>
+            <div class="agenda-card-desc">Oração · 07:30–08:30 | Ceia · 08:30–10:00</div>
+          </div>
+          <div class="agenda-card reveal reveal-delay-5">
+            <div class="agenda-card-day">3º Domingo</div>
+            <span class="agenda-card-icon">🌍</span>
+            <div class="agenda-card-title">Culto de Missões</div>
+            <div class="agenda-card-time">19:15–21:00</div>
+            <div class="agenda-card-desc">Evangelização, missão e compromisso com a Grande Comissão</div>
+          </div>
+          <div class="agenda-card reveal reveal-delay-6">
+            <div class="agenda-card-day">4º Domingo</div>
+            <span class="agenda-card-icon">👨‍👩‍👧‍👦</span>
+            <div class="agenda-card-title">Culto da Família</div>
+            <div class="agenda-card-time">19:15–21:00</div>
+            <div class="agenda-card-desc">Palavra, oração, comunhão e edificação para toda a família</div>
           </div>
         </div>
         <p class="agenda-address reveal">
@@ -155,8 +169,10 @@
               <p>
                 <strong>Terça:</strong> 19:30 – 21:15<br>
                 <strong>Quinta:</strong> 19:30 – 21:15<br>
-                <strong>Sábado:</strong> 19:30 – 21:15<br>
-                <strong>Domingo:</strong> 08:30 – 10:00
+                <strong>1º Domingo:</strong> Culto das Irmãs · 19:15 – 21:00<br>
+                <strong>2º Domingo:</strong> Oração · 07:30 – 08:30 | Ceia · 08:30 – 10:00<br>
+                <strong>3º Domingo:</strong> Culto de Missões · 19:15 – 21:00<br>
+                <strong>4º Domingo:</strong> Culto da Família · 19:15 – 21:00
               </p>
             </div>
             <div class="location-block">
@@ -194,7 +210,7 @@
           <div class="divider"></div>
         </div>
         <div class="contact-form-wrapper reveal">
-          <div class="form-success" id="form-success">✅ Mensagem enviada com sucesso! Entraremos em contato em breve.</div>
+          <div class="form-success" id="form-success">✅ Cadastro preparado! O WhatsApp será aberto para concluir o envio.</div>
           <form id="contact-form" novalidate>
             <div class="form-group">
               <label for="nome">Nome Completo <span>*</span></label>
@@ -205,7 +221,7 @@
               <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(19) 99999-9999">
             </div>
             <div class="form-group">
-              <label for="email">Email <span style="color:rgba(255,255,255,.4);font-weight:400">(opcional)</span></label>
+              <label for="email">Email <span class="optional-label">(opcional)</span></label>
               <input type="email" id="email" name="email" placeholder="seu@email.com">
             </div>
             <div class="form-group">
@@ -215,15 +231,15 @@
                 <option value="irmas">Ministério Irmãs</option>
                 <option value="missoes">Ministério Missões</option>
                 <option value="juventude">Ministério Juventude</option>
-                <option value="cooperacao">Cooperação Externa</option>
+                <option value="culto-familia">Culto da Família</option>
                 <option value="geral">Informações Gerais</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="mensagem">Mensagem <span style="color:rgba(255,255,255,.4);font-weight:400">(opcional)</span></label>
+              <label for="mensagem">Mensagem <span class="optional-label">(opcional)</span></label>
               <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">✉️ Enviar Cadastro</button>
+            <button type="submit" class="btn btn-primary btn-full">✉️ Enviar Cadastro</button>
           </form>
           <p class="form-note">Seus dados serão usados apenas para contato. Nunca compartilhamos informações.</p>
         </div>
@@ -261,7 +277,7 @@
           <li><a href="irmas.html">🙏 Irmãs</a></li>
           <li><a href="missoes.html">🌍 Missões</a></li>
           <li><a href="juventude.html">⚡ Juventude</a></li>
-          <li><a href="cooperacao.html">🤝 Cooperação</a></li>
+          <li><a href="cooperacao.html">👨‍👩‍👧‍👦 Culto da Família</a></li>
         </ul>
       </div>
      <div class="footer-col">
@@ -274,7 +290,7 @@
           📍 <strong>Endereço:</strong> Rua Rafael Paulo Teixeira de Oliveira, 224<br>
           Loteamento Vila Lafayette Alvaro<br>
           Campinas — SP · CEP 13.091-329<br><br>
-          📞 <strong>Contato:</strong> <a href="https://wa.me/5519998532764" style="color:rgba(255,255,255,.55)">+55 19 99853-2764</a><br><br>
+          📞 <strong>Contato:</strong> <a href="https://wa.me/5519998532764">+55 19 99853-2764</a><br><br>
           🆔 <strong>CNPJ:</strong> 64.757.502/0001-44
         </p>
       </div>
